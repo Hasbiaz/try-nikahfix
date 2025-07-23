@@ -147,7 +147,7 @@ export default function WishSection() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2 rounded-lg bg-white text-white bg-red-700"
+          className="w-full py-2 rounded-lg text-white bg-red-700"
         >
           Send
         </button>

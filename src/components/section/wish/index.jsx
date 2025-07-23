@@ -34,6 +34,18 @@ export default function WishSection() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -131,6 +143,7 @@ export default function WishSection() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full rounded-lg focus:outline-none px-2 py-1 text-black"
+            placeholder="Your Name"
           />
         </div>
         <div className="space-y-1">
@@ -140,8 +153,15 @@ export default function WishSection() {
             minLength={10}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (!isMobile && e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
             className="w-full rounded-lg focus:outline-none px-2 py-1 text-black"
             rows={4}
+            placeholder={isMobile ? "Type your message here..." : "Press Enter to send, Shift+Enter for new line"}
           ></textarea>
         </div>
         <button

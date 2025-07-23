@@ -60,7 +60,7 @@ export default function Thumbnail() {
             <h1 className="font-bold text-3xl leading-none">
               {data.pegantin.wanita.panggilan} & {data.pegantin.pria.panggilan}:{' '}
               <br />
-              Sebelum Hari H
+              Before the Big Day
             </h1>
           </div>
           <div>

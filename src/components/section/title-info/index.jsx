@@ -11,8 +11,8 @@ export default function TitleInfo() {
         </span>
       </div>
       <h2 className="text-lg leading-5 text-white font-bold">
-        {data.pegantin.wanita.panggilan} &amp; {data.pegantin.pria.panggilan}:
-        Sebelum Hari H
+         {data.pegantin.pria.panggilan} &amp; {data.pegantin.wanita.panggilan}:
+        Before the Big Day
       </h2>
       <div className="flex gap-1 items-center">
         <span className="text-green-500 mr-2">100% match</span>

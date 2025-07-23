@@ -13,7 +13,7 @@ import Reception from '../reception'; // Assuming reception is a component
 
 export default function DetailInfo() {
   return (
-    <div className="space-y-5 pb-10">
+    <div className="space-y-5 pb-10 mt-2">
       <video className="w-full rounded-lg" autoPlay muted>
         <source src={data.url_video} type="video/mp4" />
         Your browser does not support the video tag.
@@ -48,7 +48,7 @@ export default function DetailInfo() {
             ></iframe>
           </div>
           <a 
-            className="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
             href="https://maps.app.goo.gl/12pjqXd5sRPq9jrv6"
             target="_blank"
             rel="noopener noreferrer"

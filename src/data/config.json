@@ -11,12 +11,12 @@
       "foto": "./images/Groom.png",
       "panggilan": "Fathin",
       "nama": "Fathinatul Amalia",
-      "bapak": "Bapak Sigit Priyo",
-      "ibu": "Ibu Haniah (Almh.)"
+      "bapak": "Bapak Sigit Priyo Istianto",
+      "ibu": "Almh. Ibu Haniah"
     }
   },
   "audio_url": "/audio/lagunya.mp3",
-  "tanggal_pernikahan": "5 Des 2025",
+  "tanggal_pernikahan": "5th Dec 2025",
   "thumbnail_image_url": "https://slametandfatma.wedding/galeri/nikahfix.jpg",
   "url_video": "https://slametandfatma.wedding/video/myvideo.mp4",
   "intro": "After a long journey of self-discovery and growth, Azhar and Fathin finally met at the perfect time—when both were ready to begin a new chapter. Now, they embark on their wedding journey, not as the end of their love story, but as the beginning of a true adventure together.",
@@ -61,9 +61,15 @@
     "holder": "Azhar Azziz Afifi"
   },
   "reception": {
-    "date": "5 Desember 2025",
+    "date": "5 December 2025",
     "time": "09:00 - 11:00 WIB",
     "venue": "Gedung Muhammadiyah, Bakalan, Muntilan, Kabupaten Magelang, Jawa Tengah"
+  },
+  "akad": {
+    "date": "5 December 2025",
+    "time": "06:00 - 08:00 WIB",
+    "venue": "Gedung Muhammadiyah, Bakalan, Muntilan, Kabupaten Magelang, Jawa Tengah"
+
   },
   "address": "Citran RT 1 RW 14, Donorojo, Mertoyudan, Kabupaten Magelang, Jawa Tengah 56553",
   "show_menu": {

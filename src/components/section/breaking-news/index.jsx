@@ -10,7 +10,7 @@ export default function BreakingNews() {
         height={300}
         src={data.breaking_news_img}
       />
-      <div className="text-[#A3A1A1] text-sm italic leading-[1.15rem] mt-2">
+      <div className="text-[#A3A1A1] text-sm text-justify leading-[1.15rem] mt-2">
         <div
           className="space-y-2"
           dangerouslySetInnerHTML={{

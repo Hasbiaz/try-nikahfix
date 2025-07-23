@@ -10,7 +10,7 @@ export default function Footer() {
         <p className="text-white text-sm">Can’t wait to see u again! ❤️</p>
       </div>
       <div className="mt-8 flex flex-col items-center">
-        <p className="text-[10px] text-[#A3A1A1] mb-6">
+        <p className="text-[10px] text-[#A3A1A1]">
           E-Invitation made with ♥ by{' '}
           <a
             className="underline"

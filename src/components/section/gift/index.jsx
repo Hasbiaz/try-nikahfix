@@ -36,6 +36,7 @@ return (
                 </div>
             </div>
             <div className="ml-4">
+                {/* Address icon */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24">
                     <rect width="24" height="24" rx="6" fill="#E50914"/>
                     <path d="M12 21s7-5 7-10.5a7 7 0 00-14 0C5 16 12 21 12 21z" stroke="#fff" strokeWidth="2"/>

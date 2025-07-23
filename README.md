@@ -27,12 +27,6 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 - **TailwindCSS**: Framework CSS utility-first untuk desain yang responsif dan modern
 - **Supabase**: Backend sebagai layanan untuk autentikasi, database, dan API real-time
 - **Indonesian Badwords**: Library untuk filter kata kasar dalam bahasa Indonesia
-- **Lodash**: Utility library untuk manipulasi data JavaScript
-- **React Google reCAPTCHA**: Komponen reCAPTCHA untuk keamanan form
-- **React Router**: Routing library untuk navigasi aplikasi
-- **PostCSS & Autoprefixer**: Processing CSS untuk kompatibilitas browser
-- **ESLint**: Linting tool untuk kualitas kode JavaScript/React
-- **Vercel**: Platform hosting yang digunakan untuk menyajikan demo
 
 ## 📋 Komponen dan Struktur Aplikasi
 
@@ -56,7 +50,6 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 #### **Title Info** (`src/components/section/title-info/`)
 - Informasi judul dengan metadata Netflix-style
 - Rating, durasi, dan kualitas video indicator
-- Countdown timer untuk tanggal pernikahan
 
 #### **Breaking News** (`src/components/section/breaking-news/`)
 - Section berita dengan HTML content yang dapat dikustomisasi
@@ -96,6 +89,7 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 - Validasi form dengan minimum character requirements
 - Custom scrollbar styling
 - Mobile-responsive dengan keyboard detection
+- Ditambahkan fitur emoji
 
 #### **Footer** (`src/components/section/footer/`)
 - Credit dan informasi pembuat

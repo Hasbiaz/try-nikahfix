@@ -139,7 +139,7 @@ export default function DetailInfo() {
               ></iframe>
             </div>
             <a 
-              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all duration-300 ease-smooth transform hover:scale-105 inline-block"
+              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-500 transition-all duration-300 ease-smooth transform hover:scale-105 inline-block"
               href="https://maps.app.goo.gl/12pjqXd5sRPq9jrv6"
               target="_blank"
               rel="noopener noreferrer"

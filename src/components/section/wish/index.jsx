@@ -26,8 +26,28 @@ const WishItem = forwardRef(({ name, message, color }, ref) => (
 
 const colorList = ['red', '#ffdb58', '#6bc76b', '#48cae4'];
 
+const emoticons = [
+  '😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃',
+  '😉', '😊', '😇', '🥰', '😍', '🤩', '😘', '😗', '😚', '😙',
+  '😋', '😛', '😜', '🤪', '😝', '🤑', '🤗', '🤭', '🤫', '🤔',
+  '😐', '😑', '😶', '😏', '😒', '🙄', '😬', '🤥', '😌', '😔',
+  '😪', '🤤', '😴', '😷', '🤒', '🤕', '🤢', '🤮', '🤧', '🥵',
+  '🥶', '🥴', '😵', '🤯', '🤠', '🥳', '😎', '🤓', '🧐', '😕',
+  '😟', '🙁', '☹️', '😮', '😯', '😲', '😳', '🥺', '😦', '😧',
+  '😨', '😰', '😥', '😢', '😭', '😱', '😖', '😣', '😞', '😓',
+  '😩', '😫', '🥱', '😤', '😡', '😠', '🤬', '😈', '👿', '💀',
+  '☠️', '💩', '🤡', '👹', '👺', '👻', '👽', '👾', '🤖', '😺',
+  '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '❤️', '🧡',
+  '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔', '❣️', '💕',
+  '💖', '💗', '💘', '💝', '💞', '💟', '👍', '👎', '👌', '🤏',
+  '✌️', '🤞', '🤟', '🤘', '🤙', '👈', '👉', '👆', '🖕', '👇',
+  '☝️', '👏', '🙌', '👐', '🤲', '🤝', '🙏', '✍️', '💅', '🎉',
+  '🎊', '🎈', '🎁', '🎀', '🌹', '🌺', '🌸', '🌼', '🌻', '💐'
+];
+
 export default function WishSection() {
   const lastChildRef = useRef(null);
+  const emoticonRef = useRef(null);
 
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
@@ -35,6 +55,7 @@ export default function WishSection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showEmoticons, setShowEmoticons] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -46,6 +67,22 @@ export default function WishSection() {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (emoticonRef.current && !emoticonRef.current.contains(event.target)) {
+        setShowEmoticons(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const addEmoticon = (emoticon) => {
+    setMessage(prev => prev + emoticon);
+    setShowEmoticons(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -147,22 +184,61 @@ export default function WishSection() {
           />
         </div>
         <div className="space-y-1">
-          <label>Message</label>
-          <textarea
-            required
-            minLength={10}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => {
-              if (!isMobile && e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleSubmit(e);
-              }
-            }}
-            className="w-full rounded-lg focus:outline-none px-2 py-1 text-black"
-            rows={4}
-            placeholder={isMobile ? "Type your message here..." : "Press Enter to send, Shift+Enter for new line"}
-          ></textarea>
+          <div className="flex items-center justify-between">
+            <label>Message</label>
+            <button
+              type="button"
+              onClick={() => setShowEmoticons(!showEmoticons)}
+              className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-full text-sm font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <span>Emoticons</span>
+            </button>
+          </div>
+          <div className="relative" ref={emoticonRef}>
+            <textarea
+              required
+              minLength={10}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (!isMobile && e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSubmit(e);
+                }
+              }}
+              className="w-full rounded-lg focus:outline-none px-2 py-1 text-black transition-colors"
+              rows={4}
+              placeholder={isMobile ? "Type your message here..." : "Press Enter to send, Shift+Enter for new line"}
+            ></textarea>
+            {showEmoticons && (
+              <div className="absolute bottom-full left-2 right-2 bg-white border-2 border-red-500 rounded-xl shadow-2xl max-h-48 z-50 mb-2 backdrop-blur-sm emoticon-scroll flex flex-col">
+                <div className="flex-1 overflow-y-auto px-3">
+                  <div className="grid grid-cols-6 sm:grid-cols-8 gap-1 pb-2">
+                    {emoticons.map((emoticon, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => addEmoticon(emoticon)}
+                        className="text-lg sm:text-xl hover:bg-red-100 hover:scale-110 rounded-lg p-1.5 sm:p-2 transition-all duration-150 transform active:scale-95 flex items-center justify-center min-h-[40px] hover:shadow-md"
+                        title={`Add ${emoticon}`}
+                      >
+                        {emoticon}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="sticky bottom-0 bg-white border-t border-gray-200 p-3 pt-2 rounded-b-xl">
+                  <button
+                    type="button"
+                    onClick={() => setShowEmoticons(false)}
+                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         <button
           type="submit"
@@ -182,6 +258,24 @@ export default function WishSection() {
         }
         .custom-scroll::-webkit-scrollbar-track {
           background: #222;
+        }
+        .emoticon-scroll::-webkit-scrollbar {
+          width: 4px;
+        }
+        .emoticon-scroll::-webkit-scrollbar-thumb {
+          background: #dc2626;
+          border-radius: 4px;
+          background-clip: content-box;
+        }
+        .emoticon-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .emoticon-scroll::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+        .emoticon-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: #dc2626 transparent;
         }
       `}</style>
     </div>

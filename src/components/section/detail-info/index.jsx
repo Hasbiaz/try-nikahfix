@@ -48,12 +48,12 @@ export default function DetailInfo() {
             ></iframe>
           </div>
           <a 
-            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+            className="bg-red-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
             href="https://maps.app.goo.gl/12pjqXd5sRPq9jrv6"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Lihat Lokasi
+            Click to see location
           </a>
         </div>
         {data.show_menu.wish && import.meta.env.VITE_APP_TABLE_NAME ? (

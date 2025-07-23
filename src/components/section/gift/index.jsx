@@ -5,17 +5,17 @@ export default function Gift() {
 return (
     <div>
         <h2 className="text-lg leading-5 text-white font-bold mb-4">
-        Send Gift
-      </h2>
-        <div className="bg-[#232323] p-5 rounded-lg mb-6 flex items-center">
+            Send Gift
+        </h2>
+        <div className="bg-[#232323] p-5 rounded-lg mb-2 flex items-center">
             <div className="flex-1">
                 <p className="text-white text-sm">
-                    Jika Anda ingin memberikan hadiah, silakan transfer ke nomor rekening berikut:
+                    If you would like to send a gift, please transfer to the following bank account:
                 </p>
                 <div className="text-[#A3A1A1] text-xs">
-                    <span className=" text-red-500">Bank:</span> {data.bank['name']}<br />
-                    <span className=" text-red-500">Nomor Rekening:</span> {data.bank['account']}<br />
-                    <span className=" text-red-500">Atas Nama:</span> {data.bank['holder']}
+                    <span className="text-red-500">Bank:</span> {data.bank['name']}<br />
+                    <span className="text-red-500">Account Number:</span> {data.bank['account']}<br />
+                    <span className="text-red-500">Account Holder:</span> {data.bank['holder']}
                 </div>
             </div>
             <div className="ml-4">
@@ -29,7 +29,7 @@ return (
         <div className="bg-[#232323] p-5 rounded-lg flex items-center">
             <div className="flex-1">
                 <p className="text-white text-sm ">
-                    Atau dapat dikirim ke alamat berikut:
+                    Or you can send to the following address:
                 </p>
                 <div className="text-[#A3A1A1] text-xs">
                     {data.address}

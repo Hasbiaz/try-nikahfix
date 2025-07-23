@@ -29,21 +29,34 @@ const LoveItem = ({ imageUrl, title, duration, description }) => {
 };
 
 export default function LoveStory() {
+  // Helper to generate random duration
+  const getRandomDuration = () => {
+    const min = 1;
+    const max = 59;
+    const minutes = Math.floor(Math.random() * (max - min + 1)) + min;
+    const seconds = Math.floor(Math.random() * 60);
+    return `${minutes}m ${seconds}s`;
+  };
+
   return (
     <div>
       <h2 className="text-lg leading-5 text-white font-bold mb-4">
         Our Love Story
       </h2>
       <div className="space-y-4">
-        {data.love_story.map((item, index) => (
-          <LoveItem
-            key={index}
-            imageUrl={item.image_url}
-            title={item.title}
-            duration="26m 10s"
-            description={item.description}
-          />
-        ))}
+        {data.love_story.map((item, index) => {
+          const isLast = index === data.love_story.length - 1;
+          const duration = isLast ? 'Until Death Do Us Part' : getRandomDuration();
+          return (
+            <LoveItem
+              key={index}
+              imageUrl={item.image_url}
+              title={item.title}
+              duration={duration}
+              description={item.description}
+            />
+          );
+        })}
       </div>
     </div>
   );

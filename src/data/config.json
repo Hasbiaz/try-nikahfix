@@ -2,26 +2,26 @@
   "pegantin": {
     "pria": {
       "foto": "https://slametandfatma.wedding/galeri/slamett.jpeg",
-      "panggilan": "Slamet",
-      "nama": "Slamet Riyadi",
-      "bapak": "Arpa",
-      "ibu": "Hasiri"
+      "panggilan": "Azhar",
+      "nama": "Azhar Azziz Afifi",
+      "bapak": "Damari",
+      "ibu": "Sarminah"
     },
     "wanita": {
       "foto": "https://slametandfatma.wedding/galeri/fatmaa.jpeg",
-      "panggilan": "Fatma",
-      "nama": "Fatmawati",
-      "bapak": "Suyadi",
-      "ibu": "Parjinem"
+      "panggilan": "Fathin",
+      "nama": "Fathinatul Amalia",
+      "bapak": "Priyo",
+      "ibu": "Haniah"
     }
   },
-  "audio_url": "https://slametandfatma.wedding/audio/myaudio.mp3",
-  "tanggal_pernikahan": "20 April 2025",
+  "audio_url": "/audio/lagunya.mp3",
+  "tanggal_pernikahan": "5 Des 2025",
   "thumbnail_image_url": "https://slametandfatma.wedding/galeri/nikahfix.jpg",
   "url_video": "https://slametandfatma.wedding/video/myvideo.mp4",
-  "intro": "Setelah Slamet dan Fatma dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan.",
+  "intro": "Setelah melewati proses panjang pencarian dan pematangan diri, Azhar dan Fathin akhirnya dipertemukan di waktu yang paling tepat—saat keduanya siap membuka lembaran baru. Kini, mereka memulai perjalanan menuju pernikahan, bukan sebagai akhir cerita cinta, tapi sebagai awal dari kisah yang sesungguhnya.",
   "breaking_news_img": "https://slametandfatma.wedding/galeri/news.jpg",
-  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! &lt;3 </p><p className=\"mt-4\"> Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Bekasi dan hanya dihadiri oleh keluarga dan orang terdekat.</p><p className=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p className=\"mt-4\">Dengan penuh cinta,</p><p>The bride and groom &lt;3</p>",
+  "breaking_news_content": "<p>Hai! 🌸 Karena kalian adalah bagian berharga dalam hidup kami, kami dengan bahagia ingin mengundang kalian untuk hadir di hari istimewa kami—kami akan segera menikah! 💍💕</p><p class=\"mt-4\">Pernikahan akan diselenggarakan secara intimate di <b>Gedung Muhammadiyah, Bakalan, Muntilan,</b> bersama keluarga dan orang-orang terdekat. Dan kami sangat berharap kehadiran kalian bisa menjadi bagian dari momen berharga ini. 🤍</p><p class=\"mt-4\">Doa dan restu kalian sangat berarti untuk kelancaran acara dan kehidupan baru yang akan kami jalani bersama. ✨🙏</p><p class=\"mt-4\">Dengan penuh cinta,</p><p>The bride & groom 💖</p>",
   "love_story": [
     {
       "image_url": "https://slametandfatma.wedding/galeri/story1.jpeg",
@@ -59,7 +59,7 @@
     "breaking_news": true,
     "bride_and_groom": true,
     "love_story": true,
-    "gallery": true,
-    "wish": true
+    "gallery": false,
+    "wish": false
   }
 }

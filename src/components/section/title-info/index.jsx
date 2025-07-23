@@ -7,7 +7,7 @@ export default function TitleInfo() {
       <div className="flex gap-2 items-center">
         <img src="/favicon.ico" alt="logo" width={18} height={18} />
         <span className="text-[#A3A1A1] text-xs mt-0.5 tracking-widest">
-          DOCUMENTER
+          LOVUMENTER
         </span>
       </div>
       <h2 className="text-lg leading-5 text-white font-bold">
@@ -31,15 +31,14 @@ export default function TitleInfo() {
         </span>
       </div>
       <div className="bg-[#E50913] py-1 px-2 rounded text-xs text-white font-bold w-fit">
-        Coming soon on Saturday, {data.tanggal_pernikahan}
+        Coming soon on Friday, {data.tanggal_pernikahan}
       </div>
       <div className="pt-2">
         <p className="text-white text-sm leading-[1.15rem] mb-2">
           {data.intro}
         </p>
         <p className="text-[#A3A1A1] text-[10px] leading-[1rem]">
-          "Segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat
-          (kebesaran Allah)" (Q.S Az-Zariyah: 49)
+          "Aku ingin menjadi tenang dan mencintaimu tanpa banyak kekhawatiran" (Theoresia Rumthe - Tempat Paling Liar di Muka Bumi)
         </p>
       </div>
     </div>

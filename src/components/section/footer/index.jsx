@@ -20,6 +20,15 @@ export default function Footer() {
           >
             Tajul Arifin S
           </a>
+          {'  '}and redesign by{' '}
+          <a
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+            href="https://azharazziz.github.io" 
+          >
+            Azhar Azziz
+          </a>
         </p>
       </div>
     </div>

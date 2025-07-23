@@ -59,7 +59,7 @@
     "breaking_news": true,
     "bride_and_groom": true,
     "love_story": true,
-    "gallery": false,
-    "wish": false
+    "gallery": true,
+    "wish": true
   }
 }

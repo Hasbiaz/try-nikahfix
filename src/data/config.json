@@ -1,18 +1,18 @@
 {
   "pegantin": {
     "pria": {
-      "foto": "https://slametandfatma.wedding/galeri/slamett.jpeg",
+      "foto": "./images/Bride.png",
       "panggilan": "Azhar",
       "nama": "Azhar Azziz Afifi",
-      "bapak": "Damari",
-      "ibu": "Sarminah"
+      "bapak": "Bapak Damari",
+      "ibu": "Ibu Sarminah"
     },
     "wanita": {
-      "foto": "https://slametandfatma.wedding/galeri/fatmaa.jpeg",
+      "foto": "./images/Groom.png",
       "panggilan": "Fathin",
       "nama": "Fathinatul Amalia",
-      "bapak": "Priyo",
-      "ibu": "Haniah"
+      "bapak": "Bapak Sigit Priyo",
+      "ibu": "Ibu Haniah (Almh.)"
     }
   },
   "audio_url": "/audio/lagunya.mp3",
@@ -20,26 +20,26 @@
   "thumbnail_image_url": "https://slametandfatma.wedding/galeri/nikahfix.jpg",
   "url_video": "https://slametandfatma.wedding/video/myvideo.mp4",
   "intro": "Setelah melewati proses panjang pencarian dan pematangan diri, Azhar dan Fathin akhirnya dipertemukan di waktu yang paling tepat—saat keduanya siap membuka lembaran baru. Kini, mereka memulai perjalanan menuju pernikahan, bukan sebagai akhir cerita cinta, tapi sebagai awal dari kisah yang sesungguhnya.",
-  "breaking_news_img": "https://slametandfatma.wedding/galeri/news.jpg",
+  "breaking_news_img": "./images/News.png",
   "breaking_news_content": "<p>Hai! 🌸 Karena kalian adalah bagian berharga dalam hidup kami, kami dengan bahagia ingin mengundang kalian untuk hadir di hari istimewa kami—kami akan segera menikah! 💍💕</p><p class=\"mt-4\">Pernikahan akan diselenggarakan secara intimate di <b>Gedung Muhammadiyah, Bakalan, Muntilan,</b> bersama keluarga dan orang-orang terdekat. Dan kami sangat berharap kehadiran kalian bisa menjadi bagian dari momen berharga ini. 🤍</p><p class=\"mt-4\">Doa dan restu kalian sangat berarti untuk kelancaran acara dan kehidupan baru yang akan kami jalani bersama. ✨🙏</p><p class=\"mt-4\">Dengan penuh cinta,</p><p>The bride & groom 💖</p>",
   "love_story": [
     {
-      "image_url": "https://slametandfatma.wedding/galeri/story1.jpeg",
+      "image_url": "./images/Episode 1.png",
       "title": "Episode 1: How We Met Each Other that Time",
       "description": "Slamet dan Fatma pertama kali bertemu pada tahun 2015 sebagai teman satu regu saat masa orientasi siswa Sekolah Menengah Kejuruan."
     },
     {
-      "image_url": "https://slametandfatma.wedding/galeri/story2.jpg",
+      "image_url": "./images/Episode 2.png",
       "title": "Episode 2: A Love That Grows With Time",
       "description": "Selama 1 tahun berteman, akhirnya mereka menyadari bahwa perasaan yang mereka miliki satu sama lain bukan hanya sebatas teman sekolah belaka, melainkan..."
     },
     {
-      "image_url": "https://slametandfatma.wedding/galeri/story3.jpeg",
+      "image_url": "./images/Episode 3.png",
       "title": "Episode 3: Choose to Spend Life Together",
       "description": "Setelah 8 tahun lebih menjalin hubungan, pada Desember 2024 Slamet menyampaikan niatnya untuk melamar Fatma."
     },
     {
-      "image_url": "https://slametandfatma.wedding/galeri/story4.jpeg",
+      "image_url": "./images/Episode 4.png",
       "title": "[Coming Soon] Final Episode: The Beginning of Forever",
       "description": "Ketika hari H itu datang, Slamet dan Fatma akan berbagi kisah haru mereka di sini. Sampai bertemu lagi di cerita bahagia selanjutnya!"
     }
@@ -55,11 +55,24 @@
     "https://slametandfatma.wedding/galeri/8.jpg",
     "https://slametandfatma.wedding/galeri/9.jpg"
   ],
+  "bank": {
+    "name": "Bank Mandiri",
+    "account": "1234567890",
+    "holder": "Azhar Azziz Afifi"
+  },
+  "reception": {
+    "date": "5 Desember 2025",
+    "time": "09:00 - 11:00 WIB",
+    "venue": "Gedung Muhammadiyah, Bakalan, Muntilan, Kabupaten Magelang, Jawa Tengah"
+  },
+  "address": "Citran RT 1 RW 14, Donorojo, Mertoyudan, Kabupaten Magelang, Jawa Tengah 56553",
   "show_menu": {
     "breaking_news": true,
     "bride_and_groom": true,
+    "reception": true,
     "love_story": true,
     "gallery": true,
+    "gift": true,
     "wish": true
   }
 }

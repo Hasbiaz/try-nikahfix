@@ -100,10 +100,16 @@ export default function WishSection() {
 
   return (
     <div>
-      <h2 className="text-lg leading-5 text-white font-bold mb-5">
+      <h2 className="text-lg leading-5 text-white font-bold mb-2">
         Wish for the couple
       </h2>
-      <div className="max-h-[20rem] overflow-auto space-y-4 wish-container">
+      <div
+        className="max-h-[20rem] overflow-auto space-y-4 wish-container custom-scroll"
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#ef4444 #222',
+        }}
+      >
         {data.map((item, index) => (
           <WishItem
             name={item.name}
@@ -124,7 +130,7 @@ export default function WishSection() {
             minLength={3}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full focus:outline-none px-2 py-1 text-black"
+            className="w-full rounded-lg focus:outline-none px-2 py-1 text-black"
           />
         </div>
         <div className="space-y-1">
@@ -134,18 +140,30 @@ export default function WishSection() {
             minLength={10}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full focus:outline-none px-2 py-1 text-black"
+            className="w-full rounded-lg focus:outline-none px-2 py-1 text-black"
             rows={4}
           ></textarea>
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2 bg-white text-black rounded-sm"
+          className="w-full py-2 rounded-lg bg-white text-white bg-red-700"
         >
           Send
         </button>
       </form>
+      <style>{`
+        .custom-scroll::-webkit-scrollbar {
+          width: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+          background: #ffdb58;
+          border-radius: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+          background: #222;
+        }
+      `}</style>
     </div>
   );
 }

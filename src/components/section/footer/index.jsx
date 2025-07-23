@@ -7,7 +7,7 @@ export default function Footer() {
         <p className="text-white text-sm">
           Thank you for checking up all the things up there!
         </p>
-        <p className="text-white text-sm">Can’t wait to see u again! &lt;3</p>
+        <p className="text-white text-sm">Can’t wait to see u again! ❤️</p>
       </div>
       <div className="mt-8 flex flex-col items-center">
         <p className="text-[10px] text-[#A3A1A1] mb-6">

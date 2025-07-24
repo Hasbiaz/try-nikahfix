@@ -4,6 +4,14 @@ export default function UserWatch({ onClick }) {
   //get params from url
   const [to, setTo] = useState('Guest');
 
+  // Function to play click sound
+  const playClickSound = () => {
+    const audio = new Audio('/audio/click-sound.mp3');
+    audio.play().catch(error => {
+      console.log('Error playing click sound:', error);
+    });
+  };
+
   useEffect(() => {
     if (window) {
       const url = new URL(window.location.href);
@@ -23,7 +31,12 @@ export default function UserWatch({ onClick }) {
       />
       <div>
         <p className="mb-10 text-2xl">Who's Watching?</p>
-        <div onClick={onClick} className="group cursor-pointer">
+        <div onClick={() => {
+          playClickSound();
+          setTimeout(() => {
+            onClick();
+          }, 300);
+        }} className="group cursor-pointer">
           <img
             className="mx-auto group-hover:scale-125"
             src="images/guest-icon.png"

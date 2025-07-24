@@ -55,51 +55,33 @@ export default function Gift() {
 
                     {selectedOption === 'bank' && (
                         <div className="mt-6 pt-4 border-t border-zinc-600">
-                            <div className="space-y-4">
-                                <div className="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
-                                    <div className="flex justify-between items-center mb-2">
+                            <div className="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+                                {/* First row with button aligned to first text line */}
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className="flex-1">
                                         <span className="text-zinc-200 text-sm font-medium">Bank Name</span>
-                                        <button 
-                                            onClick={() => handleCopy(data.bank.name, 'bank')}
-                                            className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25"
-                                        >
-                                            {copiedField === 'bank' ? 'Copied!' : 'Copy'}
-                                        </button>
+                                        <p className="text-white font-mono text-sm">{data.bank.name}</p>
                                     </div>
-                                    <p className="text-white font-mono text-sm">{data.bank.name}</p>
+                                    <button 
+                                        onClick={() => handleCopy(data.bank.account, 'account')}
+                                        className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25 flex-shrink-0 ml-4"
+                                    >
+                                        {copiedField === 'account' ? 'Copied!' : 'Copy'}
+                                    </button>
                                 </div>
-                                
-                                <div className="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="text-zinc-200 text-sm font-medium">Account Number</span>
-                                        <button 
-                                            onClick={() => handleCopy(data.bank.account, 'account')}
-                                            className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25"
-                                        >
-                                            {copiedField === 'account' ? 'Copied!' : 'Copy'}
-                                        </button>
-                                    </div>
+                                {/* Full width content below */}
+                                <div className="mb-3">
+                                    <span className="text-zinc-200 text-sm font-medium">Account Number</span>
                                     <p className="text-white font-mono text-sm tracking-wider">{data.bank.account}</p>
                                 </div>
-                                
-                                <div className="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="text-zinc-200 text-sm font-medium">Account Holder</span>
-                                        <button 
-                                            onClick={() => handleCopy(data.bank.holder, 'holder')}
-                                            className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25"
-                                        >
-                                            {copiedField === 'holder' ? 'Copied!' : 'Copy'}
-                                        </button>
-                                    </div>
+                                <div>
+                                    <span className="text-zinc-200 text-sm font-medium">Account Holder</span>
                                     <p className="text-white font-mono text-sm">{data.bank.holder}</p>
                                 </div>
                             </div>
                         </div>
                     )}
                 </div>
-
-                {/* Physical Gift Option */}
                 <div 
                     className={`bg-zinc-800 border-2 rounded-lg p-6 cursor-pointer transition-all duration-200 ${
                         selectedOption === 'address' 
@@ -133,23 +115,31 @@ export default function Gift() {
                     {selectedOption === 'address' && (
                         <div className="mt-6 pt-4 border-t border-zinc-600">
                             <div className="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="text-zinc-200 text-sm font-medium">Delivery Address</span>
+                                {/* First row with button aligned to first text line */}
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className="flex-1">
+                                        <span className="text-zinc-200 text-sm font-medium">Delivery Address</span>
+                                    </div>
                                     <button 
-                                        onClick={() => handleCopy(data.address, 'address')}
-                                        className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25"
+                                        onClick={() => handleCopy(`${data.receiver}\n${data.address}`, 'address-receiver')}
+                                        className="text-red-500 text-sm hover:text-red-400 transition-colors font-medium bg-red-600/15 px-3 py-1 rounded hover:bg-red-600/25 flex-shrink-0 ml-4"
                                     >
-                                        {copiedField === 'address' ? 'Copied!' : 'Copy'}
+                                        {copiedField === 'address-receiver' ? 'Copied!' : 'Copy'}
                                     </button>
                                 </div>
-                                <p className="text-white text-sm leading-relaxed">{data.address}</p>
+                                {/* Full width content below */}
+                                <div>
+                                    <p className="text-white text-sm leading-relaxed">
+                                        <span className="font-bold">{data.receiver}</span>
+                                        <br />
+                                        <span className="">{data.address}</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-
-            {/* Footer Note */}
             <div className="text-center">
                 <p className="text-zinc-300 text-sm leading-relaxed">
                     Your love and presence mean the world to us. Any contribution is deeply appreciated but never expected.

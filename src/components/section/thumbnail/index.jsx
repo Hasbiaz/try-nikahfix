@@ -12,8 +12,14 @@ const TagItem = ({ title }) => {
 
 export default function Thumbnail() {
   const [isOpenDetail, setIsOpenDetail] = React.useState(false);
+  const [isLoaded, setIsLoaded] = React.useState(false);
 
   useEffect(() => {
+    // Set loaded state after a short delay to trigger animations
+    const loadTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
     const scrollThreshold = 1; // minimum scroll distance in pixels
 
     const handleScroll = () => {
@@ -33,6 +39,7 @@ export default function Thumbnail() {
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     return () => {
+      clearTimeout(loadTimer);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('touchmove', handleTouchMove);
     };
@@ -49,21 +56,22 @@ export default function Thumbnail() {
       className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-end mb-10"
     >
       <div className="pb-10  pt-2 bg-gradient-to-b from-transparent via-black to-black">
-        <div className="px-5 mb-10 space-y-2">
+        <div className={`px-5 mb-10 space-y-2 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <img
             src="/images/NIKAHFIX.webp"
             alt="NIKAHFIX"
             width={56}
             height={15}
+            className={`transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
           />
-          <div>
+          <div className={`transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
             <h1 className="font-bold text-3xl leading-none">
               {data.pegantin.wanita.panggilan} & {data.pegantin.pria.panggilan}:{' '}
               <br />
               Before the Big Day
             </h1>
           </div>
-          <div>
+          <div className={`transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
             <div className="flex gap-3 items-center">
               <span className="bg-[#E50913] text-xs text-white rounded-md px-2 py-1">
                 Coming Soon
@@ -71,7 +79,7 @@ export default function Thumbnail() {
               <p className="text-sm">{data.tanggal_pernikahan}</p>
             </div>
           </div>
-          <div>
+          <div className={`transition-all duration-1000 delay-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <ul className="flex gap-2 items-center">
               <TagItem title="#romantic" />
               <TagItem title="#getmarried" />
@@ -80,7 +88,7 @@ export default function Thumbnail() {
             </ul>
           </div>
         </div>
-        <div className="w-full text-center  ">
+        <div className={`w-full text-center transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <button
             onClick={() => setIsOpenDetail(true)}
             className="uppercase w-full text-xl font-semibold"

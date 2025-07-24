@@ -9,7 +9,7 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 
 ## ✨ Fitur Utama
 
-- **🎬 Netflix-style Interface**: Antarmuka yang terinspirasi dari Netflix dengan navigasi yang smooth
+- **🎬 Netflix-style Interface**: Antarmuka yang terinspirasi dari Netflix dengan navigasi yang smooth dan landing page "Who's Watching?" yang interaktif
 - **🎵 Audio Control**: Background musik dengan kontrol play/pause yang otomatis pause saat tab tidak aktif
 - **📱 Responsive Design**: Tampilan yang optimal di semua perangkat (mobile, tablet, desktop)
 - **💌 Wish System**: Sistem ucapan dengan filter kata kasar menggunakan Indonesian Badwords
@@ -19,6 +19,8 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 - **💳 Gift Information**: Informasi rekening bank dan alamat untuk kiriman hadiah
 - **🔗 Dynamic URL**: URL parameter untuk personalisasi nama tamu
 - **📊 Real-time Data**: Sinkronisasi real-time dengan Supabase
+- **🎨 Modern UI**: Dark theme dengan gradien background dan hover effects yang elegan
+- **🔊 Sound Effects**: Click sound untuk interaksi yang lebih engaging
 
 ## Teknologi yang Digunakan
 
@@ -33,9 +35,14 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 ### 🎯 Komponen Utama
 
 #### **User Watch** (`src/components/section/user-watch/`)
-- Landing page dengan profil tamu berdasarkan URL parameter
-- Tampilan "Who's Watching?" seperti Netflix
-- Deteksi otomatis nama tamu dari query parameter `?to=`
+- Landing page dengan desain Netflix-inspired yang elegan
+- Profile card dengan hover effects dan transisi yang smooth
+- Auto-deteksi nama tamu dari URL parameter `?to=`
+- Background gradient yang dinamis dengan overlay effects
+- Welcome message yang personal dan call-to-action yang jelas
+- Footer attribution yang subtle namun informatif
+- Responsive design dengan ukuran yang optimal di semua device
+- Sound feedback untuk interaksi yang lebih engaging
 
 #### **Thumbnail** (`src/components/section/thumbnail/`)
 - Halaman utama dengan background image dan informasi dasar
@@ -152,7 +159,8 @@ public/
 ├── favicon.ico                 # Icon aplikasi
 ├── vite.svg                   # Vite logo
 ├── audio/
-│   └── lagunya.mp3           # Background music
+│   ├── lagunya.mp3           # Background music
+│   └── click-sound.mp3       # Sound effect untuk interaksi
 ├── images/
 │   ├── NIKAHFIX.webp         # Logo utama
 │   ├── Bride.png             # Foto pengantin wanita
@@ -164,7 +172,11 @@ public/
 │   ├── guest-icon.png        # Icon user watching
 │   ├── 4k-icon.png           # Quality indicator
 │   ├── hd-icon.png           # Quality indicator
+│   ├── dummy.png             # Placeholder image
 │   └── thumbnail.webp        # Main thumbnail
+├── template/                  # Design templates
+│   ├── master thumbnail.ai   # Adobe Illustrator template
+│   └── Poster Film.psd       # Photoshop template
 └── video/
     └── videonya.mp4          # Video content (optional)
 ```
@@ -399,6 +411,22 @@ nikahfix/
 3. **Performance**: Gunakan Lighthouse untuk audit performa
 4. **Accessibility**: Test dengan screen reader untuk aksesibilitas
 5. **Cross Browser**: Test di Chrome, Firefox, Safari, dan Edge
+6. **Component Structure**: Gunakan struktur komponen yang modular untuk maintainability
+7. **Audio Management**: Test audio playback di berbagai browser untuk compatibility
+8. **Animation Performance**: Monitor performance animasi terutama di mobile devices
+9. **URL Parameter Testing**: Test berbagai format nama di URL parameter
+10. **Dark Theme Optimization**: Pastikan contrast ratio yang baik untuk readability
+
+### 🎨 Design Guidelines
+
+- **Netflix-inspired**: Ikuti design language Netflix untuk konsistensi
+- **Dark Theme**: Gunakan gradasi hitam dan abu-abu untuk background
+- **Smooth Transitions**: Implementasikan transisi yang halus (300ms duration)
+- **Hover Effects**: Berikan feedback visual untuk semua interactive elements
+- **Responsive**: Mobile-first approach dengan breakpoint yang tepat
+- **Typography**: Gunakan font weight yang tepat untuk hierarchy
+- **Color Palette**: Stick dengan white, gray variations, dan accent colors
+- **Spacing**: Consistent spacing menggunakan Tailwind's spacing scale
 
 ## 🚀 Deployment
 

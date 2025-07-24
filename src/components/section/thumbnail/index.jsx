@@ -53,7 +53,7 @@ export default function Thumbnail() {
       style={{
         backgroundImage: `url(${data.thumbnail_image_url})`,
       }}
-      className="min-h-lvh bg-cover bg-center bg-no-repeat flex flex-col justify-end mb-10"
+      className="min-h-dvh bg-cover bg-center bg-no-repeat flex flex-col justify-end mb-10"
     >
       <div className="pb-10  pt-2 bg-gradient-to-b from-transparent via-black to-black">
         <div className={`px-5 mb-10 space-y-2 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

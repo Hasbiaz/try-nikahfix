@@ -63,7 +63,8 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 #### **Reception** (`src/components/section/reception/`)
 - Informasi acara akad dan resepsi
 - Tanggal, waktu, dan lokasi lengkap
-- Styling card dengan background transparan
+- Styling card ala netflix
+- Countdown
 
 #### **Love Story** (`src/components/section/love-story/`)
 - Timeline perjalanan cinta dalam format episode
@@ -79,7 +80,7 @@ Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut
 #### **Gift** (`src/components/section/gift/`)
 - Informasi rekening bank untuk transfer hadiah
 - Alamat lengkap untuk pengiriman hadiah fisik
-- Icon dan styling card yang menarik
+- Icon dan styling card yang ala netflix payment
 
 #### **Wish Section** (`src/components/section/wish/`)
 - Form ucapan dan doa untuk pengantin

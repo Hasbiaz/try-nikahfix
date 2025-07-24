@@ -4,12 +4,16 @@ import data from '../../../data/config.json';
 export default function SongButton() {
   const [isPlaying, setIsPlaying] = React.useState(true);
   //stop the song when browser is closed or minimized
+  const audioRef = React.useRef(null);
+
   React.useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         setIsPlaying(false);
+        audioRef.current && audioRef.current.pause();
       } else {
         setIsPlaying(true);
+        audioRef.current && audioRef.current.play();
       }
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -17,13 +21,24 @@ export default function SongButton() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
   return (
     // component to play and stop the song
     <div className="fixed bottom-5 right-5 ">
       <audio
+        ref={audioRef}
         autoPlay
         loop
-        src={isPlaying ? data.audio_url : ''}
+        src={data.audio_url}
         className="hidden"
       />
       <button

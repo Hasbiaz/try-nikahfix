@@ -21,7 +21,7 @@ export default function UserWatch({ onClick }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black flex flex-col justify-between items-center px-4">
+    <div className="min-h-dvh bg-black flex flex-col justify-between items-center px-4">
       {/* Main Content */}
       <div className="flex-1 flex flex-col justify-center items-center">
         {/* Logo */}

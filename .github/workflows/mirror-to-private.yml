@@ -40,7 +40,12 @@ jobs:
           
           # Tambahkan config.json hanya jika belum ada
           if [ ! -f ../private-repo/src/data/config.json ]; then
+            echo "Config file not found in private repo, copying from public repo..."
+            mkdir -p ../private-repo/src/data/
             cp ./src/data/config.json ../private-repo/src/data/config.json
+            echo "Config file copied successfully"
+          else
+            echo "Config file already exists in private repo, skipping..."
           fi
 
       - name: Commit dan Push ke repo private

@@ -23,14 +23,20 @@ jobs:
       - name: Clone repo private
         run: |
           git clone "${{ secrets.PRIVATE_REPO_URL }}" ../private-repo
-      - name: Sinkronisasi file ke repo private (update existing files)
+      - name: Sinkronisasi file ke repo private (preserve config & public data)
         run: |
-          # Sinkronisasi semua file kecuali .git dan .github, update existing files
+          # Sync semua file kecuali .git, .github, dan preserve existing config/public data
           rsync -av \
             --exclude='.git' \
             --exclude='.github/' \
-            --delete \
+            --ignore-existing='src/data/config.json' \
+            --ignore-existing='public/' \
             ./ ../private-repo/
+          
+          # Tambahkan file baru di public/ yang belum ada tanpa overwrite existing
+          rsync -av \
+            --ignore-existing \
+            ./public/ ../private-repo/public/
 
       - name: Commit dan Push ke repo private
         run: |

@@ -159,14 +159,15 @@ const GalleryCarousel = () => {
                   />
                   {/* Netflix-style gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {/* Image counter */}
-                  <div className="absolute top-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {displayIndex + 1} / {gallery.length}
-                  </div>
                 </div>
               );
             })}
           </div>
+        </div>
+
+        {/* Static Image counter */}
+        <div className="absolute top-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+          {((currentSlide - 1) % gallery.length + gallery.length) % gallery.length + 1} / {gallery.length}
         </div>
 
         {/* Netflix-style Navigation arrows - only show on hover */}

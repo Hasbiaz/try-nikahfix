@@ -1,4 +1,4 @@
-name: Safe Mirror (exclude config.json & workflows, overwrite public)
+name: Mirror ke Repo Private (tanpa folder repo-private)
 
 on:
   push:
@@ -20,25 +20,23 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USER_NAME }}"
           git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
 
-      - name: Clone repo private
+      - name: Clone repo private ke folder sementara
         run: |
-          git clone "${{ secrets.PRIVATE_REPO_URL }}" repo-private
+          git clone "${{ secrets.PRIVATE_REPO_URL }}" private-tmp
 
-      - name: Sync files ke repo private (tanpa folder ganda)
+      - name: Sinkronisasi file ke private-tmp (tanpa config & workflow)
         run: |
-          # Salin semua file dari repo publik ke repo-private (kecuali file/file sensitif)
           rsync -av \
             --exclude='.git' \
             --exclude='src/data/config.json' \
             --exclude='.github/workflows/' \
-            ./ ./repo-private/
+            ./ ./private-tmp/
 
-          # Khusus folder public: overwrite file lama jika ada, tapi file lain tetap aman
-          rsync -av ./public/ ./repo-private/public/
+          rsync -av ./public/ ./private-tmp/public/
 
       - name: Commit dan Push ke repo private
         run: |
-          cd repo-private
+          cd private-tmp
           git add .
-          git commit -m "Sync from nikahfix (safe overwrite public, exclude workflows & config.json)" || echo "Nothing to commit"
+          git commit -m "Sync from nikahfix (no repo-private folder, safe overwrite)" || echo "Nothing to commit"
           git push origin main

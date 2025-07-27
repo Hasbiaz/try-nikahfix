@@ -46,33 +46,38 @@ const AnimatedSection = ({ children, delay = 0, animation = 'fade-up' }) => {
 };
 
 export default function DetailInfo() {
-  const [videoRef, isVideoVisible] = useScrollAnimation();
+  const [mediaRef, isMediaVisible] = useScrollAnimation();
   
   return (
     <div className="space-y-5 pb-10 mt-2">
-      {/* <video 
-        ref={videoRef}
-        className={`w-full rounded-lg transition-all duration-1000 ease-out ${
-          isVideoVisible 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-0 translate-y-8 scale-95'
-        }`}
-        autoPlay 
-        muted
-      >
-        <source src={data.url_video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> */}
-
-      <img
-        ref={videoRef}
-        className={`w-full rounded-lg aspect-video object-cover transition-all duration-1000 ease-out ${
-          isVideoVisible 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-0 translate-y-8 scale-95'
-        }`}
-        src={data.video_replacement}
-      />
+      {/* Conditional rendering based on config */}
+      {data.use_video ? (
+        <video 
+          ref={mediaRef}
+          className={`w-full rounded-lg transition-all duration-1000 ease-out ${
+            isMediaVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+          autoPlay 
+          muted
+          loop
+        >
+          <source src={data.url_video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <img
+          ref={mediaRef}
+          className={`w-full rounded-lg aspect-video object-cover transition-all duration-1000 ease-out ${
+            isMediaVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+          src={data.video_replacement}
+          alt="Wedding Cover"
+        />
+      )}
 
       <div className="px-4 space-y-4">
         <AnimatedSection delay={100} animation="slide-left">

@@ -23,7 +23,6 @@ jobs:
       - name: Clone repo private
         run: |
           git clone "${{ secrets.PRIVATE_REPO_URL }}" ../private-repo
-
       - name: Sinkronisasi file ke repo private (tanpa overwrite file existing)
         run: |
           # Sinkronisasi semua file kecuali yang dikecualikan, tanpa overwrite existing files

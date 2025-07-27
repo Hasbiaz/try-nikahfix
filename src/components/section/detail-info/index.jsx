@@ -49,12 +49,12 @@ export default function DetailInfo() {
   const [mediaRef, isMediaVisible] = useScrollAnimation();
   
   return (
-    <div className="space-y-5 pb-10 mt-2">
+    <div className="space-y-5 pb-10">
       {/* Conditional rendering based on config */}
       {data.use_video ? (
         <video 
           ref={mediaRef}
-          className={`w-full rounded-lg transition-all duration-1000 ease-out ${
+          className={`w-full transition-all duration-1000 ease-out ${
             isMediaVisible 
               ? 'opacity-100 translate-y-0 scale-100' 
               : 'opacity-0 translate-y-8 scale-95'
@@ -69,7 +69,7 @@ export default function DetailInfo() {
       ) : (
         <img
           ref={mediaRef}
-          className={`w-full rounded-lg aspect-video object-cover transition-all duration-1000 ease-out ${
+          className={`w-full aspect-video object-cover transition-all duration-1000 ease-out ${
             isMediaVisible 
               ? 'opacity-100 translate-y-0 scale-100' 
               : 'opacity-0 translate-y-8 scale-95'

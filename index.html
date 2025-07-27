@@ -4,42 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-ico" href="/favicon.ico" sizes="48x48" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nikahfix - Loading...</title>
-    <script>
-      // Load config and set dynamic title
-      fetch('/src/data/config.json')
-        .then(response => response.json())
-        .then(config => {
-          const title = `${config.pegantin.wanita.panggilan} & ${config.pegantin.pria.panggilan} - Wedding Invitation`;
-          document.title = title;
-          
-          // Also set meta tags for better SEO and sharing
-          const metaDescription = document.createElement('meta');
-          metaDescription.name = 'description';
-          metaDescription.content = config.intro;
-          document.head.appendChild(metaDescription);
-          
-          // Open Graph meta tags for social media sharing
-          const ogTitle = document.createElement('meta');
-          ogTitle.setAttribute('property', 'og:title');
-          ogTitle.content = title;
-          document.head.appendChild(ogTitle);
-          
-          const ogDescription = document.createElement('meta');
-          ogDescription.setAttribute('property', 'og:description');
-          ogDescription.content = config.intro;
-          document.head.appendChild(ogDescription);
-          
-          const ogImage = document.createElement('meta');
-          ogImage.setAttribute('property', 'og:image');
-          ogImage.content = config.thumbnail_image_url;
-          document.head.appendChild(ogImage);
-        })
-        .catch(error => {
-          console.error('Failed to load config:', error);
-          document.title = 'Wedding Invitation - Nikahfix';
-        });
-    </script>
+    <title>Fatma & Slamet - Wedding Invitation</title>
+    <meta name="description" content="Setelah Slamet dan Fatma dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan." />
+    
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="Fatma & Slamet - Wedding Invitation" />
+    <meta property="og:description" content="Setelah Slamet dan Fatma dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan." />
+    <meta property="og:image" content="https://slametandfatma.wedding/galeri/nikahfix.jpg" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fatma & Slamet - Wedding Invitation" />
+    <meta name="twitter:description" content="Setelah Slamet dan Fatma dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan." />
+    <meta name="twitter:image" content="https://slametandfatma.wedding/galeri/nikahfix.jpg" />
   </head>
   <body style="background-color: black">
     <div id="root"></div>

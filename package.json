@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/update-html.js && vite build",
+    "build:vercel": "node scripts/update-html.js && vite build",
+    "update-html": "node scripts/update-html.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

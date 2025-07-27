@@ -499,4 +499,4 @@ Jika Anda mengalami masalah atau memiliki pertanyaan, silakan:
 2. Create new issue dengan detail yang lengkap
 3. Contact developer melalui link yang tersedia di footer
 
-**Happy Wedding! 💖**
+** 💖 Happy Wedding 💖**

@@ -24,26 +24,21 @@ jobs:
         run: |
           git clone "${{ secrets.PRIVATE_REPO_URL }}" repo-private
 
-      - name: Sync files (safe mode)
+      - name: Sync files ke repo private (tanpa folder ganda)
         run: |
-          # Salin semua file kecuali:
-          # - .git
-          # - src/data/config.json (file kredensial)
-          # - .github/workflows (agar YAML tidak ikut tersalin)
+          # Salin semua file dari repo publik ke repo-private (kecuali file/file sensitif)
           rsync -av \
             --exclude='.git' \
             --exclude='src/data/config.json' \
             --exclude='.github/workflows/' \
             ./ ./repo-private/
 
-          # Sinkronkan folder public (file baru ditambah, file lama tidak dihapus, file lama dengan nama sama di-overwrite)
+          # Khusus folder public: overwrite file lama jika ada, tapi file lain tetap aman
           rsync -av ./public/ ./repo-private/public/
 
-          cd repo-private
-          git add .
-          git commit -m "Sync from nikahfix (exclude config.json & workflows)" || echo "Nothing to commit"
-
-      - name: Push ke repo private
+      - name: Commit dan Push ke repo private
         run: |
           cd repo-private
+          git add .
+          git commit -m "Sync from nikahfix (safe overwrite public, exclude workflows & config.json)" || echo "Nothing to commit"
           git push origin main

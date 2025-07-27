@@ -1,0 +1,47 @@
+# Ignore template folders with design files
+public/template/
+**/template/
+**/templates/
+
+# Ignore specific design file types
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xd
+*.eps
+*.svg (if source files)
+
+# Common design asset folders
+design/
+assets/design/
+src/design/
+public/design/
+
+# Development and build files
+node_modules/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+.vscode/
+.idea/
+
+# Git files
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md (except production docs)
+
+# Database files
+*.sql
+nikahfix_rows.sql
+
+# Config files that shouldn't be deployed
+eslint.config.js
+postcss.config.js
+tailwind.config.js
+vite.config.js

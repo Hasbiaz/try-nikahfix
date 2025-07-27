@@ -1,0 +1,39 @@
+name: Safe Mirror (overwrite public files, exclude config.js)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo publik
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+
+      - name: Clone repo private (target)
+        run: |
+          git clone "${{ secrets.PRIVATE_REPO_URL }}" repo-private
+
+      - name: Sync isi repo publik ke private
+        run: |
+          rsync -av --exclude='.git' --exclude='src/data/config.json' ./ ./repo-private/
+          rsync -av ./public/ ./repo-private/public/
+
+          cd repo-private
+          git add .
+          git commit -m "Sync from nikahfix (overwrite public/, exclude config.js)" || echo "Nothing to commit"
+
+      - name: Push ke repo private
+        run: |
+          cd repo-private
+          git push origin main

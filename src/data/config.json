@@ -1,53 +1,53 @@
 {
   "pegantin": {
     "pria": {
-      "foto": "./images/Bride.png",
-      "panggilan": "John",
-      "nama": "John Doe Smith",
-      "bapak": "Bapak Michael Smith",
-      "ibu": "Ibu Sarah Smith"
+      "foto": "./images/Groom.png",
+      "panggilan": "Arif",
+      "nama": "Arif Rahman",
+      "bapak": "Bapak Sukarno",
+      "ibu": "Ibu Siti Aminah"
     },
     "wanita": {
-      "foto": "./images/Groom.png",
-      "panggilan": "Jane",
-      "nama": "Jane Mary Johnson",
-      "bapak": "Bapak Robert Johnson",
-      "ibu": "Ibu Linda Johnson"
+      "foto": "./images/Bride.png",
+      "panggilan": "Sari",
+      "nama": "Sari Wulandari",
+      "bapak": "Bapak Budi Santoso",
+      "ibu": "Ibu Dewi Lestari"
     }
   },
   "audio_url": "/audio/lagunya.mp3",
-  "tanggal_pernikahan": "15/06/2028",
+  "tanggal_pernikahan": "15 Agustus 2025",
   "thumbnail_image_url": "./images/thumbnail.webp",
   "url_video": "./video/videonya.mp4",
   "video_replacement": "./images/Video.jpg",
-  "intro": "After a beautiful journey of love and companionship, John and Jane are ready to embark on their next adventure together. Join us as we celebrate the beginning of their married life.",
-  "quote": "\"Love is not about finding the perfect person, but learning to see an imperfect person perfectly.\" - Sam Keen",
+  "intro": "Setelah Arif dan Sari dipertemukan dalam situasi yang tepat, di mana keduanya telah siap untuk memulai hubungan bersama, tibalah mereka di awal perjalanan baru menuju pernikahan.",
+  "quote": "\"Cinta sejati bukan tentang menemukan seseorang yang sempurna, tetapi belajar melihat orang yang tidak sempurna dengan sempurna.\" - Sam Keen",
   "breaking_news_img": "./images/News.png",
-  "breaking_news_content": "<p>Hello! We are excited to share our special day with you—we are getting married soon! </p><p class=\"mt-4\">The wedding will be held in a beautiful venue with family and closest friends. We truly hope your presence will make this moment even more special. </p><p class=\"mt-4\">Your prayers and blessings mean the world to us as we begin this new journey together. </p><p class=\"mt-4\">With love,</p><p>John & Jane 💖</p>",
+  "breaking_news_content": "<p>Halo! Karena kalian adalah orang penting yang mengisi hari-hari kami, kami ingin informasikan bahwa kami akan segera menikah! ♥ </p><p class=\"mt-4\">Tapi sebelumnya, kami mohon maaf kepada teman dan kerabat semua karena tidak bisa mengundang kalian hadir di hari bahagia kami, dikarenakan pernikahan kami bersifat intimate wedding yang dilaksanakan di Jakarta dan hanya dihadiri oleh keluarga dan orang terdekat.</p><p class=\"mt-4\">Walaupun begitu, kami harapkan sebaik-baiknya doa untuk kelancaran pernikahan dan hari-hari bahagia setelahnya.</p><p class=\"mt-4\">Dengan penuh cinta,</p><p>Arif & Sari ♥</p>",
   "love_story": [
     {
       "image_url": "./images/Episode 1.png",
-      "title": "Episode 1: How We Met Each Other",
-      "description": "John and Jane first met in 2023 at a coffee shop, where a chance encounter over spilled coffee led to their first conversation and an instant connection."
-        },
-        {
+      "title": "Episode 1: How We Met Each Other that Time",
+      "description": "Arif dan Sari pertama kali bertemu pada tahun 2020 sebagai rekan kerja di sebuah perusahaan teknologi di Jakarta. Kesan pertama mereka satu sama lain sangat baik."
+    },
+    {
       "image_url": "./images/Episode 2.png",
-      "title": "Episode 2: Growing Closer",
-      "description": "Over the following months, John and Jane discovered their shared interests and values. Their friendship deepened into love as they supported each other through life's ups and downs."
-        },
-        {
+      "title": "Episode 2: A Love That Grows With Time",
+      "description": "Selama 2 tahun bekerja bersama, akhirnya mereka menyadari bahwa perasaan yang mereka miliki satu sama lain bukan hanya sebatas rekan kerja belaka, melainkan ada sesuatu yang lebih dalam."
+    },
+    {
       "image_url": "./images/Episode 3.png",
-      "title": "Episode 3: The Proposal",
-      "description": "In spring 2025, John surprised Jane with a romantic proposal at their favorite park. With tears of joy, she said yes, and they began planning their future together."
-        },
-        {
+      "title": "Episode 3: Choose to Spend Life Together",
+      "description": "Setelah 3 tahun menjalin hubungan, pada Februari 2024 Arif menyampaikan niatnya untuk melamar Sari dengan sebuah surprise romantic dinner di tempat pertama mereka berkencan."
+    },
+    {
       "image_url": "./images/Episode 4.png",
-      "title": "Final Episode: Our Wedding Day",
-      "description": "Today, John and Jane celebrate their love surrounded by family and friends. This is not the end of their story, but the beautiful beginning of their married life."
+      "title": "[Coming Soon] Final Episode: The Beginning of Forever",
+      "description": "Ketika hari H itu datang, Arif dan Sari akan berbagi kisah haru mereka di sini. Sampai bertemu lagi di cerita bahagia selanjutnya!"
     }
   ],
   "gallery": [
-      "https://slametandfatma.wedding/galeri/1.jpg",
+    "https://slametandfatma.wedding/galeri/1.jpg",
     "https://slametandfatma.wedding/galeri/2.jpg",
     "https://slametandfatma.wedding/galeri/3.jpg",
     "https://slametandfatma.wedding/galeri/4.jpg",
@@ -58,23 +58,22 @@
     "https://slametandfatma.wedding/galeri/9.jpg"
   ],
   "bank": {
-    "name": "Bank Central",
-    "account": "1234567890",
-    "holder": "John Doe Smith"
+    "name": "Bank Mandiri",
+    "account": "1370015678901",
+    "holder": "Arif Rahman"
   },
   "reception": {
-    "date": "15 June 2025",
+    "date": "15 Agustus 2025",
     "time": "14:00 - 17:00 WIB",
-    "venue": "Grand Ballroom, Hotel Paradise, Downtown City"
+    "venue": "Grand Ballroom, Hotel Mulia, Jakarta Selatan"
   },
   "akad": {
-    "date": "15 June 2025",
-    "time": "10:00 - 12:00 WIB",
-    "venue": "Grand Ballroom, Hotel Paradise, Downtown City"
-
+    "date": "15 Agustus 2025",
+    "time": "09:00 - 11:00 WIB",
+    "venue": "Masjid Al-Hikmah, Jakarta Selatan"
   },
-  "receiver": "Wedding Organizer Team",
-  "address": "123 Main Street, Downtown City, State 12345",
+  "receiver": "Keluarga Besar Arif & Sari",
+  "address": "Jl. Kemang Raya No. 123, Jakarta Selatan 12560",
   "show_menu": {
     "breaking_news": true,
     "bride_and_groom": true,

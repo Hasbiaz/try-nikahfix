@@ -63,6 +63,11 @@
     "account": "1370015678901",
     "holder": "Slamet Riyadi"
   },
+  "qris": {
+    "merchant": "Slamet Riyadi",
+    "nmid": "ID1234567890123456",
+    "qr_code": "https://example.com/qris-code.png"
+  },
   "reception": {
     "date": "20 April 2025",
     "time": "14:00 - 17:00 WIB",
@@ -83,5 +88,10 @@
     "gallery": true,
     "gift": true,
     "wish": true
+  },
+  "gift_options": {
+    "bank": true,
+    "qris": true,
+    "physical": true
   }
 }

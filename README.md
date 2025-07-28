@@ -1,53 +1,350 @@
-# NIKAHFIX
+# 💍 NIKAHFIX - Modern Wedding Invitation Website
 
-**NIKAHFIX** adalah sebuah website undangan pernikahan yang terinspirasi dari tampilan _Netflix_, memberikan pengalaman visual menarik dan modern untuk pengguna. Proyek ini dibangun menggunakan **React** dengan bundler **Vite**, dilengkapi dengan **Supabase** untuk mengelola data undangan, serta dirancang agar mudah diakses, responsif, dan estetis.
+**NIKAHFIX** is a modern, Netflix-inspired wedding invitation website that provides an elegant and interactive experience for wedding guests. Built with React and Vite, featuring Supabase integration for real-time guest messages and a fully configurable design system.
 
-## Demo
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/azharazziz/nikahfix)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://nikahfix-v02.vercel.app/)
 
-Anda dapat melihat demo langsung dari NIKAHFIX di sini: [NIKAHFIX - Demo](https://nikahfix-v02.vercel.app/).
-Jika anda memiliki tujuan spesifik undangannya, bisa dibuat link seperti berikut [https://nikahfix-v02.vercel.app/?to=tajul+dan+gorbon](https://nikahfix-v02.vercel.app/?to=tajul+dan+gorbon)
+## 🌟 Features
 
-## ✨ Fitur Utama
+### 🎬 Netflix-Inspired Interface
+- Landing page with "Who's Watching?" style user selection
+- Smooth transitions and hover effects
+- Dark theme with elegant gradients
+- Responsive design for all devices
 
-- **🎬 Netflix-style Interface**: Antarmuka yang terinspirasi dari Netflix dengan navigasi yang smooth dan landing page "Who's Watching?" yang interaktif
-- **🎵 Audio Control**: Background musik dengan kontrol play/pause yang otomatis pause saat tab tidak aktif
-- **📱 Responsive Design**: Tampilan yang optimal di semua perangkat (mobile, tablet, desktop)
-- **💌 Wish System**: Sistem ucapan dengan filter kata kasar menggunakan Indonesian Badwords
-- **🖼️ Gallery Carousel**: Galeri foto dengan navigasi Netflix-style dan auto-slide
-- **🎊 Smooth Animations**: Animasi scroll yang halus dengan intersection observer
-- **📍 Location Integration**: Integrasi Google Maps untuk lokasi acara
-- **💳 Gift Information**: Informasi rekening bank dan alamat untuk kiriman hadiah
-- **🔗 Dynamic URL**: URL parameter untuk personalisasi nama tamu
-- **📊 Real-time Data**: Sinkronisasi real-time dengan Supabase
-- **🎨 Modern UI**: Dark theme dengan gradien background dan hover effects yang elegan
-- **🔊 Sound Effects**: Click sound untuk interaksi yang lebih engaging
+### 🎵 Enhanced Audio Experience
+- Background music with smart controls
+- Auto-pause when tab becomes inactive
+- Click sound effects for better interaction
+- Smooth fade-in/out animations
 
-## Teknologi yang Digunakan
+### 💝 Modern Gift System
+- **Bank Transfer**: Complete bank account information with copy functionality
+- **QRIS Payment**: QR code display with merchant and NMID information
+- **Physical Gifts**: Delivery address with copy functionality
+- **Configurable Options**: Enable/disable payment methods via configuration
 
-- **React 18**: Library JavaScript untuk membangun antarmuka pengguna
-- **Vite**: Bundler modern untuk pengembangan aplikasi web cepat dengan konfigurasi minimal
-- **TailwindCSS**: Framework CSS utility-first untuk desain yang responsif dan modern
-- **Supabase**: Backend sebagai layanan untuk autentikasi, database, dan API real-time
-- **Indonesian Badwords**: Library untuk filter kata kasar dalam bahasa Indonesia
+### 📱 Responsive Components
+- **Gallery Carousel**: Netflix-style navigation with auto-slide
+- **Love Story Timeline**: Episode-based relationship journey
+- **Real-time Wishes**: Guest messages with profanity filter
+- **Location Integration**: Interactive Google Maps embedding
+- **Reception Details**: Event information with countdown timer
 
-## 📋 Komponen dan Struktur Aplikasi
+### ⚙️ Advanced Configuration
+- **Modular Sections**: Enable/disable any section via configuration
+- **Payment Options**: Flexible gift payment method controls
+- **Content Management**: Centralized data management via JSON
+- **Environment Variables**: Secure credential management
 
-### 🎯 Komponen Utama
+## 🚀 Quick Start
 
-#### **User Watch** (`src/components/section/user-watch/`)
-- Landing page dengan desain Netflix-inspired yang elegan
-- Profile card dengan hover effects dan transisi yang smooth
-- Auto-deteksi nama tamu dari URL parameter `?to=`
-- Background gradient yang dinamis dengan overlay effects
-- Welcome message yang personal dan call-to-action yang jelas
-- Footer attribution yang subtle namun informatif
-- Responsive design dengan ukuran yang optimal di semua device
-- Sound feedback untuk interaksi yang lebih engaging
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Supabase account (for guest wishes feature)
 
-#### **Thumbnail** (`src/components/section/thumbnail/`)
-- Halaman utama dengan background image dan informasi dasar
-- Scroll detection untuk navigasi ke detail
-- Tags dan metadata acara pernikahan
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/azharazziz/nikahfix.git
+   cd nikahfix
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment setup**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update `.env` with your Supabase credentials:
+   ```env
+   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_APP_TABLE_NAME=nikahfix
+   ```
+
+4. **Configure your wedding data**
+   
+   Edit `src/data/config.json` to customize:
+   ```json
+   {
+     "pegantin": {
+       "pria": { "nama": "Your Name", "foto": "path/to/photo" },
+       "wanita": { "nama": "Partner Name", "foto": "path/to/photo" }
+     },
+     "show_menu": {
+       "breaking_news": true,
+       "bride_and_groom": true,
+       "reception": true,
+       "love_story": true,
+       "gallery": true,
+       "gift": true,
+       "wish": true
+     },
+     "gift_options": {
+       "bank": true,
+       "qris": true,
+       "physical": true
+     }
+   }
+   ```
+
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Visit your site**
+   ```
+   http://localhost:5173
+   ```
+
+## 📋 Project Structure
+
+```
+nikahfix/
+├── public/
+│   ├── audio/           # Background music & sound effects
+│   ├── images/          # Photos, icons, and graphics
+│   ├── video/           # Video content (optional)
+│   └── template/        # Design templates (AI/PSD)
+├── src/
+│   ├── components/
+│   │   ├── section/     # Main page sections
+│   │   │   ├── user-watch/      # Landing page
+│   │   │   ├── thumbnail/       # Main video/image
+│   │   │   ├── title-info/      # Netflix-style metadata
+│   │   │   ├── breaking-news/   # Announcement section
+│   │   │   ├── bride-groom/     # Couple profiles
+│   │   │   ├── reception/       # Event details
+│   │   │   ├── love-story/      # Relationship timeline
+│   │   │   ├── our-gallery/     # Photo carousel
+│   │   │   ├── gift/            # Payment information
+│   │   │   ├── wish/            # Guest messages
+│   │   │   └── footer/          # Credits
+│   │   └── ui/          # Reusable components
+│   ├── data/
+│   │   └── config.json  # Central configuration
+│   ├── hooks/
+│   │   └── useScrollAnimation.js
+│   ├── lib/
+│   │   └── supabaseClient.js
+│   └── ...
+├── .env                 # Environment variables
+├── package.json
+└── README.md
+```
+
+## 🎨 Customization Guide
+
+### 🖼️ Adding Your Photos
+
+1. **Couple Photos**: Replace `public/images/Bride.png` and `public/images/Groom.png`
+2. **Gallery**: Add images to `public/images/` and update gallery array in config
+3. **Love Story**: Replace `public/images/Episode 1-4.png` with your timeline photos
+
+### 💳 Payment Configuration
+
+Configure available payment methods in `config.json`:
+
+```json
+{
+  "gift_options": {
+    "bank": true,        // Enable bank transfer
+    "qris": true,        // Enable QRIS payment
+    "physical": true     // Enable physical gift address
+  },
+  "bank": {
+    "name": "Bank Name",
+    "account": "1234567890",
+    "holder": "Account Holder"
+  },
+  "qris": {
+    "merchant": "Merchant Name",
+    "nmid": "ID1234567890123456",
+    "qr_code": "path/to/qr-code.png"
+  }
+}
+```
+
+### 🎵 Audio & Media
+
+- **Background Music**: Replace `public/audio/lagunya.mp3`
+- **Click Sound**: Replace `public/audio/click-sound.mp3`
+- **Video**: Update `url_video` in config or use `video_replacement` image
+
+### 📍 Location Setup
+
+Update Google Maps embed in `src/components/section/detail-info/index.jsx`:
+1. Get embed code from Google Maps
+2. Replace the iframe src with your venue location
+3. Update the "Click to see location" link
+
+## 🗄️ Database Setup (Supabase)
+
+### Create Wishes Table
+
+```sql
+-- Create table for guest wishes
+CREATE TABLE public.nikahfix (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    name VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    color VARCHAR(50) NOT NULL
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.nikahfix ENABLE ROW LEVEL SECURITY;
+
+-- Allow public read access
+CREATE POLICY "Anyone can read wishes" ON public.nikahfix
+    FOR SELECT USING (true);
+
+-- Allow public insert access
+CREATE POLICY "Anyone can insert wishes" ON public.nikahfix
+    FOR INSERT WITH CHECK (true);
+```
+
+### Sample Data
+
+Use `nikahfix_rows.sql` to populate with sample wishes for testing.
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial wedding setup"
+   git push origin main
+   ```
+
+2. **Deploy to Vercel**
+   - Visit [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Add environment variables
+   - Deploy automatically
+
+3. **Environment Variables**
+   ```env
+   VITE_SUPABASE_ANON_KEY=your-production-key
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_APP_TABLE_NAME=nikahfix
+   ```
+
+### Build for Production
+
+```bash
+# Build the project
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## 🎯 Advanced Features
+
+### Personalized URLs
+
+Create personalized invitation links:
+```
+https://your-site.com/?to=john+and+jane
+```
+
+### Section Visibility Control
+
+Toggle any section via configuration:
+```json
+{
+  "show_menu": {
+    "breaking_news": false,    // Hide announcement
+    "bride_and_groom": true,   // Show couple profiles
+    "reception": true,         // Show event details
+    "love_story": true,        // Show timeline
+    "gallery": true,           // Show photos
+    "gift": false,             // Hide payment info
+    "wish": true               // Show guest messages
+  }
+}
+```
+
+### Animation System
+
+Built-in scroll animations with custom hook:
+- `fade-up`: Fade in from bottom
+- `slide-left`: Slide in from left
+- `slide-right`: Slide in from right
+- `scale`: Scale up with fade
+
+## 🛠️ Development Scripts
+
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+
+# Preview build
+npm run preview
+
+# Lint code
+npm run lint
+
+# Update HTML files
+npm run update-html
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Original Creator**: [Tajul Arifin S](https://github.com/arifintajul4/nikahfix) - Initial concept and foundation
+- **Enhanced by**: [Azhar Azziz](https://azharazziz.github.io) - Additional features and improvements
+- **Design Inspiration**: Netflix interface and modern web design principles
+- **Technologies**: React, Vite, TailwindCSS, Supabase
+
+## 📞 Support
+
+Having issues? We're here to help!
+
+- 📝 [Create an Issue](https://github.com/azharazziz/nikahfix/issues)
+- 📧 Contact via GitHub profile
+- 💬 Check existing discussions and solutions
+
+---
+
+<div align="center">
+
+**💖 Happy Wedding! 💖**
+
+Made with ❤️ for couples celebrating their special day
+
+[Demo](https://nikahfix-v02.vercel.app/) • [GitHub](https://github.com/azharazziz/nikahfix) • [Issues](https://github.com/azharazziz/nikahfix/issues)
+
+</div>
 
 #### **Detail Info** (`src/components/section/detail-info/`)
 - Container utama untuk semua section dengan scroll animations

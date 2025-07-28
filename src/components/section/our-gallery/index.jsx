@@ -165,11 +165,6 @@ const GalleryCarousel = () => {
           </div>
         </div>
 
-        {/* Static Image counter */}
-        <div className="absolute top-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
-          {((currentSlide - 1) % gallery.length + gallery.length) % gallery.length + 1} / {gallery.length}
-        </div>
-
         {/* Netflix-style Navigation arrows - only show on hover */}
         <button
           onClick={goToPrevious}

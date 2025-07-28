@@ -55,21 +55,21 @@ export default function Gift() {
                 >
                     <div className="flex items-start justify-between">
                         <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30 flex-shrink-0">
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" className="flex-shrink-0">
                                     <path d="M2 5h20v2H2V5zm0 4h20v10a1 1 0 01-1 1H3a1 1 0 01-1-1V9zm4 3h4v2H6v-2z" fill="#fff"/>
                                 </svg>
                             </div>
-                            <div>
+                            <div className="flex-1 min-w-0">
                                 <h3 className="text-white font-bold text-lg">Bank Transfer</h3>
                                 <p className="text-zinc-300 text-sm">Secure bank-to-bank transfer</p>
                             </div>
                         </div>
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                             selectedOption === 'bank' ? 'border-red-600 bg-red-600/10' : 'border-zinc-400'
                         }`}>
                             {selectedOption === 'bank' && (
-                                <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                                <div className="w-2.5 h-2.5 bg-red-600 rounded-full flex-shrink-0"></div>
                             )}
                         </div>
                     </div>
@@ -117,8 +117,8 @@ export default function Gift() {
                 >
                     <div className="flex items-start justify-between">
                         <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30 flex-shrink-0">
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" className="flex-shrink-0">
                                     <rect x="3" y="3" width="7" height="7" rx="1" fill="#fff"/>
                                     <rect x="14" y="3" width="7" height="7" rx="1" fill="#fff"/>
                                     <rect x="3" y="14" width="7" height="7" rx="1" fill="#fff"/>
@@ -129,16 +129,16 @@ export default function Gift() {
                                     <rect x="16" y="16" width="3" height="3" fill="#dc2626"/>
                                 </svg>
                             </div>
-                            <div>
+                            <div className="flex-1 min-w-0">
                                 <h3 className="text-white font-bold text-lg">QRIS Payment</h3>
                                 <p className="text-zinc-300 text-sm">Scan QR code with any e-wallet</p>
                             </div>
                         </div>
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                             selectedOption === 'qris' ? 'border-red-600 bg-red-600/10' : 'border-zinc-400'
                         }`}>
                             {selectedOption === 'qris' && (
-                                <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                                <div className="w-2.5 h-2.5 bg-red-600 rounded-full flex-shrink-0"></div>
                             )}
                         </div>
                     </div>
@@ -198,22 +198,22 @@ export default function Gift() {
                 >
                     <div className="flex items-start justify-between">
                         <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path d="M12 21s7-5 7-10.5a7 7 0 00-14 0C5 16 12 21 12 21z" stroke="#fff" strokeWidth="2" fill="none"/>
-                                    <circle cx="12" cy="10.5" r="2.5" stroke="#fff" strokeWidth="2" fill="none"/>
+                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30 flex-shrink-0">
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" className="flex-shrink-0" strokeWidth="2">
+                                    <path d="M12 21s7-5 7-10.5a7 7 0 00-14 0C5 16 12 21 12 21z" stroke="#fff" fill="none"/>
+                                    <circle cx="12" cy="10.5" r="2.5" stroke="#fff" fill="none"/>
                                 </svg>
                             </div>
-                            <div>
+                            <div className="flex-1 min-w-0">
                                 <h3 className="text-white font-bold text-lg">Physical Gift</h3>
                                 <p className="text-zinc-300 text-sm">Send to our address</p>
                             </div>
                         </div>
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                             selectedOption === 'address' ? 'border-red-600 bg-red-600/10' : 'border-zinc-400'
                         }`}>
                             {selectedOption === 'address' && (
-                                <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                                <div className="w-2.5 h-2.5 bg-red-600 rounded-full flex-shrink-0"></div>
                             )}
                         </div>
                     </div>

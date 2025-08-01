@@ -6,9 +6,9 @@ NIKAHFIX memberikan pengalaman visual menarik dan modern untuk undangan pernikah
 
 ## 🎬 Demo
 
-You can see the live demo of the original NIKAHFIX here: [NIKAHFIX - Demo](https://nikahfix-v01.vercel.app/)
+You can see the live demo of the original NIKAHFIX here: [NIKAHFIX - Demo](https://nikahfix-v02.vercel.app/)
 
-For specific invitation purposes, you can create custom links like: `https://nikahfix-v01.vercel.app/?to=tajul+dan+gorbon`
+For specific invitation purposes, you can create custom links like: `https://nikahfix-v02.vercel.app/?to=tajul+dan+gorbon`
 
 ## 🌟 Features
 

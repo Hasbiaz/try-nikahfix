@@ -1,46 +1,73 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./intro.css";
 // Import audio file explicitly to ensure correct path in production
 import taadaaAudio from '/audio/taadaa.mp3';
 
 export default function Intro() {
   const audioRef = useRef(null);
+  const [audioBlocked, setAudioBlocked] = useState(false);
+
+  const enableAudio = async () => {
+    try {
+      if (audioRef.current) {
+        audioRef.current.volume = 0.7;
+        await audioRef.current.play();
+        setAudioBlocked(false);
+        console.log('Audio enabled successfully');
+      }
+    } catch (error) {
+      console.log('Failed to enable audio:', error);
+    }
+  };
 
   useEffect(() => {
-    // Delay audio play slightly to ensure component is fully mounted
+    // Try to play audio with user interaction fallback
     const playAudio = async () => {
       if (audioRef.current) {
         try {
           // Set volume to reasonable level
           audioRef.current.volume = 0.7;
           
-          // Load the audio first
-          await audioRef.current.load();
-          
-          // Try to play audio with better error handling
+          // Try to play audio immediately
           await audioRef.current.play();
           console.log('Audio playing successfully');
+          setAudioBlocked(false);
         } catch (error) {
-          console.log('Auto-play was prevented by browser policy:', error);
+          console.log('Auto-play prevented, audio will play on user interaction');
+          setAudioBlocked(true);
           
-          // Fallback: try to enable audio on any user interaction
-          const enableAudio = () => {
-            if (audioRef.current) {
-              audioRef.current.play().catch(e => console.log('Fallback audio play failed:', e));
-              document.removeEventListener('click', enableAudio);
-              document.removeEventListener('touchstart', enableAudio);
+          // Create a one-time user interaction handler
+          const handleUserInteraction = async () => {
+            try {
+              if (audioRef.current) {
+                await audioRef.current.play();
+                console.log('Audio started after user interaction');
+                setAudioBlocked(false);
+              }
+            } catch (e) {
+              console.log('Audio play failed even after user interaction:', e);
             }
+            
+            // Remove all listeners after first successful interaction
+            document.removeEventListener('click', handleUserInteraction);
+            document.removeEventListener('touchstart', handleUserInteraction);
+            document.removeEventListener('keydown', handleUserInteraction);
           };
           
-          document.addEventListener('click', enableAudio);
-          document.addEventListener('touchstart', enableAudio);
+          // Add multiple event listeners for better coverage
+          document.addEventListener('click', handleUserInteraction, { once: true });
+          document.addEventListener('touchstart', handleUserInteraction, { once: true });
+          document.addEventListener('keydown', handleUserInteraction, { once: true });
         }
       }
     };
 
-    // Small delay to ensure everything is ready
-    const timer = setTimeout(playAudio, 200);
-    return () => clearTimeout(timer);
+    // Small delay to ensure component is mounted
+    const timer = setTimeout(playAudio, 100);
+    
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -50,10 +77,35 @@ export default function Intro() {
         ref={audioRef} 
         src={taadaaAudio} 
         preload="auto"
-        crossOrigin="anonymous"
         playsInline
-        muted={false}
+        crossOrigin="anonymous"
       />
+      
+      {/* Audio enable button if autoplay is blocked */}
+      {audioBlocked && (
+        <div 
+          onClick={enableAudio}
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            color: '#000',
+            padding: '8px 12px',
+            borderRadius: '20px',
+            cursor: 'pointer',
+            fontSize: '12px',
+            fontWeight: 'bold',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+          }}
+        >
+          🔊 Tap to enable sound
+        </div>
+      )}
       
       <div id="container">
         {/* Netflix Intro Letter N */}

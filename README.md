@@ -2,7 +2,7 @@
 
 A modern, interactive wedding invitation website inspired by Netflix's interface design. This project is an enhanced version of the original [NIKAHFIX](https://github.com/arifintajul4/nikahfix/) by [@arifintajul4](https://github.com/arifintajul4), featuring additional Netflix-style animations, improved audio handling, and enhanced mobile experience.
 
-NIKAHFIX memberikan pengalaman visual menarik dan modern untuk undangan pernikahan digital, dirancang agar mudah diakses, responsif, dan estetis dengan tampilan yang terinspirasi dari Netflix.
+NIKAHFIX provides an attractive and modern visual experience for digital wedding invitations, designed to be easily accessible, responsive, and aesthetic with an interface inspired by Netflix.
 
 ## 🎬 Demo
 
@@ -24,25 +24,25 @@ For specific invitation purposes, you can create custom links like: `https://nik
 
 - **Frontend**: React 18 + Vite
 - **Styling**: Tailwind CSS
-- **Build Tool**: Vite (bundler modern untuk pengembangan aplikasi web cepat)
-- **Backend**: Supabase (untuk autentikasi, database, dan API real-time)
+- **Build Tool**: Vite (modern bundler for fast web application development)
+- **Backend**: Supabase (for authentication, database, and real-time API)
 - **Deployment**: Vercel-ready configuration
 - **Audio**: HTML5 Audio API with fallback controls
 - **Animations**: CSS animations + React transitions
 
 ### Original Tech Stack (from arifintajul4):
-- **React**: Library JavaScript untuk membangun antarmuka pengguna
-- **Vite**: Bundler modern untuk pengembangan aplikasi web cepat dengan konfigurasi minimal
-- **TailwindCSS**: Untuk mendesain tampilan visual agar lebih menarik
-- **Supabase**: Backend sebagai layanan untuk autentikasi, database, dan API real-time
-- **Vercel**: Platform hosting yang digunakan untuk menyajikan demo
+- **React**: JavaScript library for building user interfaces
+- **Vite**: Modern bundler for fast web application development with minimal configuration
+- **TailwindCSS**: For designing more attractive visual appearances
+- **Supabase**: Backend service for authentication, database, and real-time API
+- **Vercel**: Hosting platform used to serve the demo
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
-- Node.js (version 16 atau lebih tinggi)
-- npm atau yarn
-- Akun Supabase (opsional, untuk fitur database original)
+- Node.js (version 16 or higher)
+- npm or yarn
+- Supabase account (for database features)
 
 ### Clone & Install
 1. Clone the repository:
@@ -54,40 +54,40 @@ cd nikahfix
 2. Install dependencies:
 ```bash
 npm install
-# atau
+# or
 yarn install
 ```
 
 3. Start development server:
 ```bash
 npm run dev
-# atau
+# or
 yarn dev
 ```
 
-Aplikasi akan berjalan di `http://localhost:5173`
+The application will run at `http://localhost:5173`
 
-### Supabase Configuration (Optional)
-Jika ingin menggunakan fitur database original (guest book, comments, dll):
+### Supabase Configuration
+To use the database features (guest book, comments, etc.):
 
-1. Buat akun di [Supabase](https://supabase.com)
-2. Buat project baru
-3. Copy environment variables dari Supabase dashboard
-4. Buat file `.env.local` dan isi dengan:
+1. Create an account at [Supabase](https://supabase.com)
+2. Create a new project
+3. Copy environment variables from Supabase dashboard
+4. Create `.env.local` file and fill with:
 ```env
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-### Build untuk Production
+### Build for Production
 ```bash
-# Build aplikasi
+# Build the application
 npm run build
-# atau
+# or
 yarn build
 ```
 
-*Note: Instruksi setup lengkap termasuk konfigurasi Supabase tersedia di [repository original](https://github.com/arifintajul4/nikahfix) oleh arifintajul4.*
+*Note: Complete setup instructions including Supabase configuration are available in the [original repository](https://github.com/arifintajul4/nikahfix) by arifintajul4.*
 
 ## 🎵 Audio Setup
 
@@ -169,20 +169,20 @@ npm run build
 
 ## 🤝 Contributing
 
-Kontribusi sangat diterima! Berikut cara untuk berkontribusi:
+Contributions are very welcome! Here's how to contribute:
 
-1. Fork repository ini
-2. Buat branch fitur baru: `git checkout -b feature/amazing-feature`
-3. Commit perubahan: `git commit -m 'Add some amazing feature'`
-4. Push ke branch: `git push origin feature/amazing-feature`
-5. Buka Pull Request
+1. Fork this repository
+2. Create a new feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add some amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
 ### Original Repository
-Repository ini adalah pengembangan dari karya original oleh **arifintajul4**. Jika ingin berkontribusi ke versi original, silakan kunjungi:
+This repository is a development of the original work by **arifintajul4**. If you want to contribute to the original version, please visit:
 - 🔗 **Original Repository**: https://github.com/arifintajul4/nikahfix/
 - 🌐 **Original Demo**: https://nikahfix-v01.vercel.app/
 
-Pastikan untuk memberikan credit yang sesuai untuk kontribusi pada kedua repository.
+Make sure to give appropriate credit for contributions to both repositories.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)

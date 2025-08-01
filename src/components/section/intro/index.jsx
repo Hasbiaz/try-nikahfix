@@ -6,10 +6,48 @@ import taadaaAudio from '/audio/taadaa.mp3';
 export default function Intro() {
   const audioRef = useRef(null);
   const [audioBlocked, setAudioBlocked] = useState(false);
+  const [audioContext, setAudioContext] = useState(null);
+
+  // Alternative Web Audio API approach
+  const playWithWebAudio = async () => {
+    try {
+      if (!audioContext) {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        setAudioContext(ctx);
+        
+        // Resume context if suspended
+        if (ctx.state === 'suspended') {
+          await ctx.resume();
+        }
+      }
+      
+      // Fallback to regular audio element
+      if (audioRef.current) {
+        audioRef.current.muted = false;
+        audioRef.current.volume = 0.7;
+        await audioRef.current.play();
+        return true;
+      }
+    } catch (error) {
+      console.log('Web Audio API approach failed:', error);
+      return false;
+    }
+  };
 
   const enableAudio = async () => {
     try {
+      // Try Web Audio API first
+      const webAudioSuccess = await playWithWebAudio();
+      if (webAudioSuccess) {
+        setAudioBlocked(false);
+        console.log('Audio enabled successfully with Web Audio API');
+        return;
+      }
+      
+      // Fallback to regular audio
       if (audioRef.current) {
+        // Ensure audio is unmuted
+        audioRef.current.muted = false;
         audioRef.current.volume = 0.7;
         await audioRef.current.play();
         setAudioBlocked(false);
@@ -21,14 +59,30 @@ export default function Intro() {
   };
 
   useEffect(() => {
+    // Initialize audio settings immediately
+    if (audioRef.current) {
+      audioRef.current.muted = false;
+      audioRef.current.volume = 0.7;
+      audioRef.current.preload = 'auto';
+    }
+
     // Try to play audio with user interaction fallback
     const playAudio = async () => {
       if (audioRef.current) {
         try {
-          // Set volume to reasonable level
+          // Multiple attempts to unmute and play
+          audioRef.current.muted = false;
           audioRef.current.volume = 0.7;
           
-          // Try to play audio immediately
+          // Try Web Audio API approach first
+          const webAudioSuccess = await playWithWebAudio();
+          if (webAudioSuccess) {
+            setAudioBlocked(false);
+            console.log('Audio playing successfully with Web Audio API');
+            return;
+          }
+          
+          // Fallback to regular audio element
           await audioRef.current.play();
           console.log('Audio playing successfully');
           setAudioBlocked(false);
@@ -40,6 +94,9 @@ export default function Intro() {
           const handleUserInteraction = async () => {
             try {
               if (audioRef.current) {
+                // Ensure audio is unmuted on user interaction
+                audioRef.current.muted = false;
+                audioRef.current.volume = 0.7;
                 await audioRef.current.play();
                 console.log('Audio started after user interaction');
                 setAudioBlocked(false);
@@ -68,7 +125,7 @@ export default function Intro() {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [audioContext]);
 
   return (
     <>

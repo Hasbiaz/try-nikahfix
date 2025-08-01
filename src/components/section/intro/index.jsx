@@ -1,25 +1,46 @@
 import React, { useEffect, useRef } from 'react';
 import "./intro.css";
+// Import audio file explicitly to ensure correct path in production
+import taadaaAudio from '/audio/taadaa.mp3';
 
 export default function Intro() {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Play taadaa audio when component mounts (intro appears)
-    if (audioRef.current) {
-      // Set volume to reasonable level
-      audioRef.current.volume = 0.7;
-      
-      // Try to play audio
-      const playPromise = audioRef.current.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
+    // Delay audio play slightly to ensure component is fully mounted
+    const playAudio = async () => {
+      if (audioRef.current) {
+        try {
+          // Set volume to reasonable level
+          audioRef.current.volume = 0.7;
+          
+          // Load the audio first
+          await audioRef.current.load();
+          
+          // Try to play audio with better error handling
+          await audioRef.current.play();
+          console.log('Audio playing successfully');
+        } catch (error) {
           console.log('Auto-play was prevented by browser policy:', error);
-          // Auto-play was prevented, but that's okay for user experience
-        });
+          
+          // Fallback: try to enable audio on any user interaction
+          const enableAudio = () => {
+            if (audioRef.current) {
+              audioRef.current.play().catch(e => console.log('Fallback audio play failed:', e));
+              document.removeEventListener('click', enableAudio);
+              document.removeEventListener('touchstart', enableAudio);
+            }
+          };
+          
+          document.addEventListener('click', enableAudio);
+          document.addEventListener('touchstart', enableAudio);
+        }
       }
-    }
+    };
+
+    // Small delay to ensure everything is ready
+    const timer = setTimeout(playAudio, 200);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -27,8 +48,11 @@ export default function Intro() {
       {/* Audio element for taadaa sound */}
       <audio 
         ref={audioRef} 
-        src="/audio/taadaa.mp3" 
+        src={taadaaAudio} 
         preload="auto"
+        crossOrigin="anonymous"
+        playsInline
+        muted={false}
       />
       
       <div id="container">

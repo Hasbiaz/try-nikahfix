@@ -6,7 +6,7 @@ export default function UserWatch({ onClick }) {
 
   // Function to play click sound
   const playClickSound = () => {
-    const audio = new Audio('/audio/click-sound.mp3');
+    const audio = new Audio('/audio/profile-click.mp3');
     audio.play().catch(error => {
       console.log('Error playing click sound:', error);
     });

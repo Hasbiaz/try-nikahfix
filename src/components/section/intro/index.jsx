@@ -59,7 +59,7 @@ export default function Intro() {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.muted = false;
-      audioRef.current.volume = 0.7;
+      audioRef.current.volume = 0.9;
       audioRef.current.play().then(() => {
         console.log('Audio manually started');
         setShowAudioPrompt(false);
@@ -81,29 +81,36 @@ export default function Intro() {
         muted
       />
       
-      {/* Simple audio enable prompt */}
+      {/* Small unmute icon at middle bottom */}
       {showAudioPrompt && (
         <div 
           onClick={handleEnableAudio}
+          className="unmute-button"
           style={{
             position: 'fixed',
-            top: '50%',
+            bottom: '30px',
             left: '50%',
-            transform: 'translate(-50%, -50%)',
-            background: 'rgba(0, 0, 0, 0.8)',
+            transform: 'translateX(-50%)',
+            background: 'rgba(255, 255, 255, 0.15)',
             color: '#fff',
-            padding: '20px 30px',
-            borderRadius: '15px',
+            padding: '12px',
+            borderRadius: '50%',
             cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: 'bold',
+            fontSize: '20px',
             zIndex: 1000,
-            textAlign: 'center',
-            border: '2px solid #fff',
-            backdropFilter: 'blur(10px)'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '50px',
+            height: '50px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+            transition: 'all 0.3s ease',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.2)'
           }}
         >
-          🎵 Tap to play sound
+          🔊
         </div>
       )}
       

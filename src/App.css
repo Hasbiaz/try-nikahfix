@@ -14,7 +14,47 @@ html {
 /* Custom scroll easing */
 html, body {
   scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
+  scroll-padding-top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix mobile viewport issues */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent margin collapse */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix mobile URL bar issue */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Additional mobile viewport fixes */
+@media (max-width: 768px) {
+  html, body {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+  
+  .h-screen {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+  
+  /* Prevent address bar from affecting layout */
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 /* Smooth transitions for all elements */

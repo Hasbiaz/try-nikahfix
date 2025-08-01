@@ -21,8 +21,8 @@ function App() {
     }
   }, [showIntro]);
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col justify-center">
-      <div className="max-w-sm container flex flex-col justify-center min-h-screen mx-auto overflow-hidden">
+    <div className="bg-black text-white h-screen flex flex-col justify-center">
+      <div className="max-w-sm container flex flex-col justify-center h-full mx-auto overflow-hidden">
         {showIntro ? (
           <Intro />
         ) : isLogin ? (

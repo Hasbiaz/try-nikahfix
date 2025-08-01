@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import './fade.css';
 import UserWatch from './components/section/user-watch';
 import Thumbnail from './components/section/thumbnail';
 import Intro from './components/section/intro';
@@ -7,9 +8,15 @@ import Intro from './components/section/intro';
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [showUserWatch, setShowUserWatch] = useState(false);
+  
   useEffect(() => {
     if (showIntro) {
-      const timer = setTimeout(() => setShowIntro(false), 5000);
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        // Add small delay before showing UserWatch with fade animation
+        setTimeout(() => setShowUserWatch(true), 100);
+      }, 4500);
       return () => clearTimeout(timer);
     }
   }, [showIntro]);
@@ -20,13 +27,15 @@ function App() {
           <Intro />
         ) : isLogin ? (
           <Thumbnail />
-        ) : (
-          <UserWatch
-            onClick={() => {
-              setIsLogin(true);
-            }}
-          />
-        )}
+        ) : showUserWatch ? (
+          <div className="fade-in">
+            <UserWatch
+              onClick={() => {
+                setIsLogin(true);
+              }}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );

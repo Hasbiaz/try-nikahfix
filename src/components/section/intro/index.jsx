@@ -5,127 +5,70 @@ import taadaaAudio from '/audio/taadaa.mp3';
 
 export default function Intro() {
   const audioRef = useRef(null);
-  const [audioBlocked, setAudioBlocked] = useState(false);
-  const [audioContext, setAudioContext] = useState(null);
-
-  // Alternative Web Audio API approach
-  const playWithWebAudio = async () => {
-    try {
-      if (!audioContext) {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        setAudioContext(ctx);
-        
-        // Resume context if suspended
-        if (ctx.state === 'suspended') {
-          await ctx.resume();
-        }
-      }
-      
-      // Fallback to regular audio element
-      if (audioRef.current) {
-        audioRef.current.muted = false;
-        audioRef.current.volume = 0.7;
-        await audioRef.current.play();
-        return true;
-      }
-    } catch (error) {
-      console.log('Web Audio API approach failed:', error);
-      return false;
-    }
-  };
-
-  const enableAudio = async () => {
-    try {
-      // Try Web Audio API first
-      const webAudioSuccess = await playWithWebAudio();
-      if (webAudioSuccess) {
-        setAudioBlocked(false);
-        console.log('Audio enabled successfully with Web Audio API');
-        return;
-      }
-      
-      // Fallback to regular audio
-      if (audioRef.current) {
-        // Ensure audio is unmuted
-        audioRef.current.muted = false;
-        audioRef.current.volume = 0.7;
-        await audioRef.current.play();
-        setAudioBlocked(false);
-        console.log('Audio enabled successfully');
-      }
-    } catch (error) {
-      console.log('Failed to enable audio:', error);
-    }
-  };
+  const [showAudioPrompt, setShowAudioPrompt] = useState(false);
+  const [audioStarted, setAudioStarted] = useState(false);
 
   useEffect(() => {
-    // Initialize audio settings immediately
-    if (audioRef.current) {
-      audioRef.current.muted = false;
-      audioRef.current.volume = 0.7;
-      audioRef.current.preload = 'auto';
-    }
-
-    // Try to play audio with user interaction fallback
-    const playAudio = async () => {
-      if (audioRef.current) {
+    // Strategy: Start muted autoplay, then unmute after user interaction
+    const initAudio = async () => {
+      if (audioRef.current && !audioStarted) {
         try {
-          // Multiple attempts to unmute and play
-          audioRef.current.muted = false;
+          // Set up audio
+          audioRef.current.currentTime = 0;
           audioRef.current.volume = 0.7;
+          audioRef.current.muted = true; // Start muted for autoplay to work
           
-          // Try Web Audio API approach first
-          const webAudioSuccess = await playWithWebAudio();
-          if (webAudioSuccess) {
-            setAudioBlocked(false);
-            console.log('Audio playing successfully with Web Audio API');
-            return;
-          }
-          
-          // Fallback to regular audio element
+          // Try autoplay with muted
           await audioRef.current.play();
-          console.log('Audio playing successfully');
-          setAudioBlocked(false);
-        } catch (error) {
-          console.log('Auto-play prevented, audio will play on user interaction');
-          setAudioBlocked(true);
+          setAudioStarted(true);
+          console.log('Muted autoplay started');
           
-          // Create a one-time user interaction handler
-          const handleUserInteraction = async () => {
-            try {
-              if (audioRef.current) {
-                // Ensure audio is unmuted on user interaction
-                audioRef.current.muted = false;
-                audioRef.current.volume = 0.7;
-                await audioRef.current.play();
-                console.log('Audio started after user interaction');
-                setAudioBlocked(false);
-              }
-            } catch (e) {
-              console.log('Audio play failed even after user interaction:', e);
+          // Set up user interaction to unmute
+          const unmute = () => {
+            if (audioRef.current) {
+              audioRef.current.muted = false;
+              console.log('Audio unmuted by user interaction');
+              setShowAudioPrompt(false);
+              
+              // Remove listeners
+              document.removeEventListener('click', unmute);
+              document.removeEventListener('touchstart', unmute);
+              document.removeEventListener('keydown', unmute);
             }
-            
-            // Remove all listeners after first successful interaction
-            document.removeEventListener('click', handleUserInteraction);
-            document.removeEventListener('touchstart', handleUserInteraction);
-            document.removeEventListener('keydown', handleUserInteraction);
           };
           
-          // Add multiple event listeners for better coverage
-          document.addEventListener('click', handleUserInteraction, { once: true });
-          document.addEventListener('touchstart', handleUserInteraction, { once: true });
-          document.addEventListener('keydown', handleUserInteraction, { once: true });
+          // Show prompt and wait for interaction
+          setShowAudioPrompt(true);
+          document.addEventListener('click', unmute, { once: true });
+          document.addEventListener('touchstart', unmute, { once: true });
+          document.addEventListener('keydown', unmute, { once: true });
+          
+        } catch (error) {
+          console.log('Even muted autoplay failed:', error);
+          setShowAudioPrompt(true);
         }
       }
     };
 
-    // Small delay to ensure component is mounted
-    const timer = setTimeout(playAudio, 100);
-    
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [audioContext]);
+    const timer = setTimeout(initAudio, 500);
+    return () => clearTimeout(timer);
+  }, [audioStarted]);
+
+  // Fallback for manual audio start
+  const handleEnableAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.muted = false;
+      audioRef.current.volume = 0.7;
+      audioRef.current.play().then(() => {
+        console.log('Audio manually started');
+        setShowAudioPrompt(false);
+        setAudioStarted(true);
+      }).catch(err => {
+        console.log('Manual audio start failed:', err);
+      });
+    }
+  };
 
   return (
     <>
@@ -135,32 +78,32 @@ export default function Intro() {
         src={taadaaAudio} 
         preload="auto"
         playsInline
-        crossOrigin="anonymous"
+        muted
       />
       
-      {/* Audio enable button if autoplay is blocked */}
-      {audioBlocked && (
+      {/* Simple audio enable prompt */}
+      {showAudioPrompt && (
         <div 
-          onClick={enableAudio}
+          onClick={handleEnableAudio}
           style={{
             position: 'fixed',
-            top: '20px',
-            right: '20px',
-            background: 'rgba(255, 255, 255, 0.9)',
-            color: '#000',
-            padding: '8px 12px',
-            borderRadius: '20px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: 'rgba(0, 0, 0, 0.8)',
+            color: '#fff',
+            padding: '20px 30px',
+            borderRadius: '15px',
             cursor: 'pointer',
-            fontSize: '12px',
+            fontSize: '16px',
             fontWeight: 'bold',
             zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+            textAlign: 'center',
+            border: '2px solid #fff',
+            backdropFilter: 'blur(10px)'
           }}
         >
-          🔊 Tap to enable sound
+          🎵 Tap to play sound
         </div>
       )}
       

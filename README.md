@@ -23,6 +23,8 @@ You may use parameters like `to`, `dear`, or `kepada` to address specific recipi
 
 These parameters will display the recipient's name on the invitation page.
 
+For convenience, you can use [WhatsApp Automate Sender](https://whatsapp-automate-sender.vercel.app/) to easily send invitations via WhatsApp. For more details, visit the [GitHub repository](https://github.com/azharazziz/whatsapp-bulk-sender).
+
 ## 🌟 Features
 
 - **Netflix-Style Intro**: Custom Netflix-inspired animation with letter "N" effect

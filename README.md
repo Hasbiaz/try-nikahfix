@@ -7,8 +7,21 @@ NIKAHFIX provides an attractive and modern visual experience for digital wedding
 ## 🎬 Demo
 
 You can see the live demo of the original NIKAHFIX here: [NIKAHFIX - Demo](https://nikahfix-v02.vercel.app/)
+## ✉️ Personalized Invitations
 
-For specific invitation purposes, you can create custom links like: `https://nikahfix-v02.vercel.app/?to=tajul+dan+gorbon`
+For personalized invitations, you can generate custom links such as:
+
+```
+https://nikahfix-v02.vercel.app/?to=tajul+dan+gorbon
+```
+
+You may use parameters like `to`, `dear`, or `kepada` to address specific recipients. For example:
+
+- `https://nikahfix-v02.vercel.app/?to=Andi+&+Siti`
+- `https://nikahfix-v02.vercel.app/?dear=Keluarga+Besar+Rahman`
+- `https://nikahfix-v02.vercel.app/?kepada=Pak+Budi`
+
+These parameters will display the recipient's name on the invitation page.
 
 ## 🌟 Features
 

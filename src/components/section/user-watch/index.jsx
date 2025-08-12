@@ -15,7 +15,7 @@ export default function UserWatch({ onClick }) {
   useEffect(() => {
     if (window) {
       const url = new URL(window.location.href);
-      const to = url.searchParams.get('to');
+      const to = url.searchParams.get('to') || url.searchParams.get('dear') || url.searchParams.get('kepada');
       setTo(to ? to : 'Guest');
     }
   }, []);

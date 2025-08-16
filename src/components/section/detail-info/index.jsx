@@ -79,7 +79,7 @@ export default function DetailInfo() {
         />
       )}
 
-      <div className="space-y-4 px-4 sm:px-6 md:px-8">
+      <div className="space-y-4 px-4">
         <AnimatedSection delay={100} animation="slide-left">
           <TitleInfo />
         </AnimatedSection>
@@ -110,9 +110,7 @@ export default function DetailInfo() {
         
         {data.show_menu.gallery && (
           <AnimatedSection delay={600} animation="scale">
-            <div className="-mx-4 sm:mx-0">
-              <OurGallery gallery={data.gallery} show_menu={data.show_menu} />
-            </div>
+            <OurGallery gallery={data.gallery} show_menu={data.show_menu} />
           </AnimatedSection>
         )}
         
